@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("name")->index();
             $table->integer("number")->unique()->unsigned();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

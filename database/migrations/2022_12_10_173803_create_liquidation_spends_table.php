@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stocks', function (Blueprint $table) {
+        Schema::create('liquidation_spends', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->integer("type");
-            $table->string("receiver")->index();
-            $table->string("sender")->index();
-            $table->dateTime("date")->nullable();
+            $table->string("type");
+            $table->double("money_amount");
+            $table->dateTime("date");
             $table->text("note")->nullable();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign("liquidation_id")->references("id")->on("liquidations")->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stocks');
+        Schema::dropIfExists('liquidation_spends');
     }
 };

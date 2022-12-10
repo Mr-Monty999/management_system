@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("sender")->index();
             $table->dateTime("date")->nullable();
             $table->text("note")->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
