@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string("responsible");
             $table->double("money_amount");
             $table->dateTime("date");
-            $table->unsignedBigInteger("vehicle_number");
             $table->text("note")->nullable();
             $table->unsignedBigInteger("vehicle_id");
             $table->softDeletes();

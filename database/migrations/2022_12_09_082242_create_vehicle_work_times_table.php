@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->boolean("is_present");
             $table->string("driver");
-            $table->unsignedBigInteger("vehicle_number");
             $table->text("note")->nullable();
             $table->dateTime("date");
             $table->unsignedBigInteger("vehicle_id");
