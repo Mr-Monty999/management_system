@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('person_work_times', function (Blueprint $table) {
             $table->id();
+            $table->boolean("is_present");
+            $table->dateTime("date")->nullable();
             $table->text("note")->nullable();
             $table->unsignedBigInteger("person_id");
             $table->softDeletes();

@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('liquidations', function (Blueprint $table) {
             $table->id();
+            $table->string("money_amount");
+            $table->string("receiver")->index();
+            $table->string("sender")->index();
+            $table->dateTime("date")->nullable();
+            $table->text("note")->nullable();
             $table->timestamps();
         });
     }

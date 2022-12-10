@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('person_borrows', function (Blueprint $table) {
             $table->id();
+            $table->string("borrower");
             $table->double("money_amount");
             $table->dateTime("date");
             $table->text("note")->nullable();

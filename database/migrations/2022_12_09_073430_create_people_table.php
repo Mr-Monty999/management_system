@@ -20,7 +20,7 @@ return new class extends Migration
             $table->dateTime("birth_date")->nullable();
             $table->dateTime("hire_date")->nullable();
             $table->double("salary")->nullable();
-            $table->integer("national_number")->nullable();
+            $table->integer("national_number")->unique()->nullable();
             $table->timestamps();
         });
     }

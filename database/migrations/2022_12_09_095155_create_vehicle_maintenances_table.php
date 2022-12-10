@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('vehicle_maintenances', function (Blueprint $table) {
             $table->id();
+            $table->string("responsible");
             $table->double("money_amount");
             $table->dateTime("date");
+            $table->unsignedBigInteger("vehicle_number");
             $table->text("note")->nullable();
             $table->unsignedBigInteger("vehicle_id");
             $table->softDeletes();
