@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime("date");
             $table->text("note")->nullable();
             $table->unsignedBigInteger("liquidation_id");
+            $table->unsignedBigInteger("person_id");
             $table->softDeletes();
             $table->timestamps();
 

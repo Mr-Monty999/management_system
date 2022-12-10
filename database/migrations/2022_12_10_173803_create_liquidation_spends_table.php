@@ -19,6 +19,7 @@ return new class extends Migration
             $table->double("money_amount");
             $table->dateTime("date");
             $table->text("note")->nullable();
+            $table->unsignedBigInteger("liquidation_id");
             $table->softDeletes();
             $table->timestamps();
 
