@@ -7,7 +7,7 @@
 * Licensed under MIT (https://coreui.io/license)
 -->
 <!-- Breadcrumb-->
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
     <base href="./">
@@ -18,31 +18,31 @@
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>CoreUI Free Bootstrap Admin Template</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ route('assets/favicon/apple-icon-57x57.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ route('assets/favicon/apple-icon-60x60.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ route('assets/favicon/apple-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ route('assets/favicon/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ route('assets/favicon/apple-icon-114x114.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ route('assets/favicon/apple-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ route('assets/favicon/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ route('assets/favicon/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ route('assets/favicon/apple-icon-180x180.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ route('assets/favicon/android-icon-192x192.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ route('assets/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ route('assets/favicon/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ route('assets/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ route('assets/favicon/manifest.json') }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/favicon/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/favicon/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/favicon/apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/favicon/apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/favicon/apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/favicon/apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/favicon/apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/favicon/apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/favicon/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/favicon/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/favicon/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('assets/favicon/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ route('assets/favicon/ms-icon-144x144.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/favicon/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
     <!-- Vendors styles-->
-    <link rel="stylesheet" href="{{ route('vendors/simplebar/css/simplebar.css') }}">
-    <link rel="stylesheet" href="{{ route('css/vendors/simplebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/simplebar/css/simplebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendors/simplebar.css') }}">
     <!-- Main styles for this application-->
-    <link href="{{ route('css/style.css" rel="stylesheet') }}">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!-- We use those styles to show code examples, you should remove them in your application.-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
-    <link href="{{ route('css/examples.css" rel="stylesheet') }}">
+    <link href="{{ asset('css/examples.css') }}" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     <script>
@@ -57,25 +57,26 @@
         // Bootstrap ID
         gtag('config', 'UA-118965717-5');
     </script>
-    <link href="vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+    <link href="{{ asset('vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet') }}">
 </head>
 
 <body>
-    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+    <div class="sidebar
+        sidebar-dark sidebar-fixed" id="sidebar">
         <div class="sidebar-brand d-none d-md-flex">
             <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-                <use xlink:href="assets/brand/coreui.svg#full"></use>
+                <use xlink:href="{{ asset('assets/brand/coreui.svg#full') }}"></use>
             </svg>
             <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
-                <use xlink:href="assets/brand/coreui.svg#signet"></use>
+                <use xlink:href="{{ asset('assets/brand/coreui.svg#signet') }}"></use>
             </svg>
         </div>
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
             <li class="nav-item"><a class="nav-link" href="index.html">
                     <svg class="nav-icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+                        <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-speedometer') }}"></use>
                     </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
-            <li class="nav-title">Theme</li>
+            {{-- <li class="nav-title">Theme</li>
             <li class="nav-item"><a class="nav-link" href="colors.html">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
@@ -83,93 +84,109 @@
             <li class="nav-item"><a class="nav-link" href="typography.html">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-                    </svg> Typography</a></li>
+                    </svg> Typography</a></li> --}}
             <li class="nav-title">Components</li>
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
-                    </svg> Base</a>
+                    </svg> الأفراد</a>
                 <ul class="nav-group-items">
                     <li class="nav-item"><a class="nav-link" href="base/accordion.html"><span
-                                class="nav-icon"></span> Accordion</a></li>
+                                class="nav-icon"></span>
+                            تسجيل فرد جديد</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span
-                                class="nav-icon"></span> Breadcrumb</a></li>
+                                class="nav-icon"></span>
+                            تسجيل الدوامات</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/cards.html"><span class="nav-icon"></span>
-                            Cards</a></li>
+                            تسجيل السلفيات</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/carousel.html"><span
-                                class="nav-icon"></span> Carousel</a></li>
+                                class="nav-icon"></span>
+                            عرض جميع الأفراد</a></li>
+                    {{--
                     <li class="nav-item"><a class="nav-link" href="base/collapse.html"><span
-                                class="nav-icon"></span> Collapse</a></li>
+                                class="nav-icon"></span>
+                            Collapse</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/list-group.html"><span
-                                class="nav-icon"></span> List group</a></li>
+                                class="nav-icon"></span>
+                            List group</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/navs-tabs.html"><span
-                                class="nav-icon"></span> Navs &amp; Tabs</a></li>
+                                class="nav-icon"></span>
+                            Navs &amp; Tabs</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/pagination.html"><span
-                                class="nav-icon"></span> Pagination</a></li>
+                                class="nav-icon"></span>
+                            Pagination</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/placeholders.html"><span
                                 class="nav-icon"></span> Placeholders</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/popovers.html"><span
-                                class="nav-icon"></span> Popovers</a></li>
+                                class="nav-icon"></span>
+                            Popovers</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/progress.html"><span
-                                class="nav-icon"></span> Progress</a></li>
+                                class="nav-icon"></span>
+                            Progress</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/scrollspy.html"><span
-                                class="nav-icon"></span> Scrollspy</a></li>
+                                class="nav-icon"></span>
+                            Scrollspy</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/spinners.html"><span
-                                class="nav-icon"></span> Spinners</a></li>
+                                class="nav-icon"></span>
+                            Spinners</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/tables.html"><span class="nav-icon"></span>
                             Tables</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/tooltips.html"><span
-                                class="nav-icon"></span> Tooltips</a></li>
+                                class="nav-icon"></span>
+                            Tooltips</a></li> --}}
                 </ul>
             </li>
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-cursor"></use>
-                    </svg> Buttons</a>
+                    </svg> المخازن</a>
                 <ul class="nav-group-items">
                     <li class="nav-item"><a class="nav-link" href="buttons/buttons.html"><span
-                                class="nav-icon"></span> Buttons</a></li>
+                                class="nav-icon"></span>
+                            إضافة حراك جديد</a></li>
                     <li class="nav-item"><a class="nav-link" href="buttons/button-group.html"><span
-                                class="nav-icon"></span> Buttons Group</a></li>
-                    <li class="nav-item"><a class="nav-link" href="buttons/dropdowns.html"><span
-                                class="nav-icon"></span> Dropdowns</a></li>
+                                class="nav-icon"></span> عرض جميع الحراكات</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link" href="buttons/dropdowns.html"><span
+                                class="nav-icon"></span> Dropdowns</a></li> --}}
                 </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" href="charts.html">
+            {{-- <li class="nav-item"><a class="nav-link" href="charts.html">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-                    </svg> Charts</a></li>
+                    </svg> Charts</a></li> --}}
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
-                    </svg> Forms</a>
+                    </svg> الآليات</a>
                 <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="forms/form-control.html"> Form Control</a></li>
-                    <li class="nav-item"><a class="nav-link" href="forms/select.html"> Select</a></li>
-                    <li class="nav-item"><a class="nav-link" href="forms/checks-radios.html"> Checks and radios</a>
+                    <li class="nav-item"><a class="nav-link" href="forms/form-control.html"> تسجيل آلية جديدة</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="forms/range.html"> Range</a></li>
-                    <li class="nav-item"><a class="nav-link" href="forms/input-group.html"> Input group</a></li>
-                    <li class="nav-item"><a class="nav-link" href="forms/floating-labels.html"> Floating labels</a>
+                    <li class="nav-item"><a class="nav-link" href="forms/select.html"> تسجل دوام جديد</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forms/checks-radios.html"> تسجيل حراك إنتاج
+                            جديد</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="forms/layout.html"> Layout</a></li>
-                    <li class="nav-item"><a class="nav-link" href="forms/validation.html"> Validation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forms/range.html"> تعبئة وقود</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forms/input-group.html"> صيانة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forms/floating-labels.html"> عرض جميع الآليات</a>
+                    </li>
+                    {{-- <li class="nav-item"><a class="nav-link" href="forms/layout.html"> Layout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forms/validation.html"> Validation</a></li> --}}
                 </ul>
             </li>
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
-                    </svg> Icons</a>
+                    </svg> التصفيات</a>
                 <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-free.html"> CoreUI Icons<span
+                    <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-free.html"> تصفية جديدة<span
                                 class="badge badge-sm bg-success ms-auto">Free</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-brand.html"> CoreUI Icons -
+                    <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-brand.html"> سلفية جديدة
                             Brand</a></li>
-                    <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-flag.html"> CoreUI Icons -
+                    <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-flag.html"> ميز
                             Flag</a></li>
                 </ul>
             </li>
-            <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+            {{-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
                     </svg> Notifications</a>
@@ -212,8 +229,8 @@
                                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
                             </svg> Error 500</a></li>
                 </ul>
-            </li>
-            <li class="nav-item mt-auto"><a class="nav-link" href="https://coreui.io/docs/templates/installation/"
+            </li> --}}
+            {{-- <li class="nav-item mt-auto"><a class="nav-link" href="https://coreui.io/docs/templates/installation/"
                     target="_blank">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-description"></use>
@@ -225,7 +242,7 @@
                     <div class="fw-semibold">PRO</div>
                 </a></li>
         </ul>
-        <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+        <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button> --}}
     </div>
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
         <header class="header header-sticky mb-4">
@@ -1019,8 +1036,7 @@
                                             <tr class="align-middle">
                                                 <td class="text-center">
                                                     <div class="avatar avatar-md"><img class="avatar-img"
-                                                            src="assets/img/avatars/3.jpg"
-                                                            alt="user@email.com"><span
+                                                            src="assets/img/avatars/3.jpg" alt="user@email.com"><span
                                                             class="avatar-status bg-warning"></span></div>
                                                 </td>
                                                 <td>
@@ -1039,14 +1055,14 @@
                                                         <div class="float-start">
                                                             <div class="fw-semibold">74%</div>
                                                         </div>
-                                                        <div class="float-end"><small
-                                                                class="text-medium-emphasis">Jun 11, 2020 - Jul 10,
+                                                        <div class="float-end"><small class="text-medium-emphasis">Jun
+                                                                11, 2020 - Jul 10,
                                                                 2020</small></div>
                                                     </div>
                                                     <div class="progress progress-thin">
                                                         <div class="progress-bar bg-warning" role="progressbar"
-                                                            style="width: 74%" aria-valuenow="74"
-                                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                                            style="width: 74%" aria-valuenow="74" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
@@ -1082,8 +1098,7 @@
                                             <tr class="align-middle">
                                                 <td class="text-center">
                                                     <div class="avatar avatar-md"><img class="avatar-img"
-                                                            src="assets/img/avatars/4.jpg"
-                                                            alt="user@email.com"><span
+                                                            src="assets/img/avatars/4.jpg" alt="user@email.com"><span
                                                             class="avatar-status bg-secondary"></span></div>
                                                 </td>
                                                 <td>
@@ -1102,14 +1117,14 @@
                                                         <div class="float-start">
                                                             <div class="fw-semibold">98%</div>
                                                         </div>
-                                                        <div class="float-end"><small
-                                                                class="text-medium-emphasis">Jun 11, 2020 - Jul 10,
+                                                        <div class="float-end"><small class="text-medium-emphasis">Jun
+                                                                11, 2020 - Jul 10,
                                                                 2020</small></div>
                                                     </div>
                                                     <div class="progress progress-thin">
                                                         <div class="progress-bar bg-danger" role="progressbar"
-                                                            style="width: 98%" aria-valuenow="98"
-                                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                                            style="width: 98%" aria-valuenow="98" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
@@ -1145,8 +1160,7 @@
                                             <tr class="align-middle">
                                                 <td class="text-center">
                                                     <div class="avatar avatar-md"><img class="avatar-img"
-                                                            src="assets/img/avatars/5.jpg"
-                                                            alt="user@email.com"><span
+                                                            src="assets/img/avatars/5.jpg" alt="user@email.com"><span
                                                             class="avatar-status bg-success"></span></div>
                                                 </td>
                                                 <td>
@@ -1165,14 +1179,14 @@
                                                         <div class="float-start">
                                                             <div class="fw-semibold">22%</div>
                                                         </div>
-                                                        <div class="float-end"><small
-                                                                class="text-medium-emphasis">Jun 11, 2020 - Jul 10,
+                                                        <div class="float-end"><small class="text-medium-emphasis">Jun
+                                                                11, 2020 - Jul 10,
                                                                 2020</small></div>
                                                     </div>
                                                     <div class="progress progress-thin">
                                                         <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 22%" aria-valuenow="22"
-                                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                                            style="width: 22%" aria-valuenow="22" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
@@ -1286,13 +1300,13 @@
         </footer>
     </div>
     <!-- CoreUI and necessary plugins-->
-    <script src="vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
-    <script src="vendors/simplebar/js/simplebar.min.js"></script>
+    <script src="{{ asset('vendors/@coreui/coreui/js/coreui.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendors/simplebar/js/simplebar.min.js') }}"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="vendors/chart.js/js/chart.min.js"></script>
-    <script src="vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
-    <script src="vendors/@coreui/utils/js/coreui-utils.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{ asset('vendors/chart.js/js/chart.min.js') }}"></script>
+    <script src="{{ asset('vendors/@coreui/chartjs/js/coreui-chartjs.js') }}"></script>
+    <script src="{{ asset('vendors/@coreui/utils/js/coreui-utils.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
     <script></script>
 
 </body>
