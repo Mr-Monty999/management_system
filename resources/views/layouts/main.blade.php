@@ -75,7 +75,7 @@
             <li class="nav-item"><a class="nav-link" href="index.html">
                     <svg class="nav-icon">
                         <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-speedometer') }}"></use>
-                    </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
+                    </svg> لوحة التحكم<span class="badge badge-sm bg-info ms-auto"></span></a></li>
             {{-- <li class="nav-title">Theme</li>
             <li class="nav-item"><a class="nav-link" href="colors.html">
                     <svg class="nav-icon">
@@ -256,12 +256,12 @@
                     <svg width="118" height="46" alt="CoreUI Logo">
                         <use xlink:href="assets/brand/coreui.svg#full"></use>
                     </svg></a>
-                <ul class="header-nav d-none d-md-flex">
+                {{-- <ul class="header-nav d-none d-md-flex">
                     <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
-                </ul>
-                <ul class="header-nav ms-auto">
+                </ul> --}}
+                {{-- <ul class="header-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#">
                             <svg class="icon icon-lg">
                                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
@@ -274,8 +274,8 @@
                             <svg class="icon icon-lg">
                                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
                             </svg></a></li>
-                </ul>
-                <ul class="header-nav ms-3">
+                </ul> --}}
+                {{-- <ul class="header-nav ms-3">
                     <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown"
                             href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/8.jpg"
@@ -325,10 +325,10 @@
                                 </svg> Logout</a>
                         </div>
                     </li>
-                </ul>
+                </ul> --}}
             </div>
             <div class="header-divider"></div>
-            <div class="container-fluid">
+            {{-- <div class="container-fluid">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb my-0 ms-2">
                         <li class="breadcrumb-item">
@@ -337,12 +337,13 @@
                         <li class="breadcrumb-item active"><span>Dashboard</span></li>
                     </ol>
                 </nav>
-            </div>
+            </div> --}}
         </header>
         <div class="body flex-grow-1 px-3">
             <div class="container-lg">
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3">
+                @yield('content')
+                {{-- <div class="row">
+                     <div class="col-sm-6 col-lg-3">
                         <div class="card mb-4 text-white bg-primary">
                             <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                                 <div>
@@ -464,7 +465,7 @@
                     <!-- /.col-->
                 </div>
                 <!-- /.row-->
-                <div class="card mb-4">
+                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
@@ -1222,8 +1223,7 @@
                                             <tr class="align-middle">
                                                 <td class="text-center">
                                                     <div class="avatar avatar-md"><img class="avatar-img"
-                                                            src="assets/img/avatars/6.jpg"
-                                                            alt="user@email.com"><span
+                                                            src="assets/img/avatars/6.jpg" alt="user@email.com"><span
                                                             class="avatar-status bg-danger"></span></div>
                                                 </td>
                                                 <td>
@@ -1242,14 +1242,14 @@
                                                         <div class="float-start">
                                                             <div class="fw-semibold">43%</div>
                                                         </div>
-                                                        <div class="float-end"><small
-                                                                class="text-medium-emphasis">Jun 11, 2020 - Jul 10,
+                                                        <div class="float-end"><small class="text-medium-emphasis">Jun
+                                                                11, 2020 - Jul 10,
                                                                 2020</small></div>
                                                     </div>
                                                     <div class="progress progress-thin">
                                                         <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 43%" aria-valuenow="43"
-                                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                                            style="width: 43%" aria-valuenow="43" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
@@ -1289,7 +1289,7 @@
                         </div>
                     </div>
                     <!-- /.col-->
-                </div>
+                </div> --}}
                 <!-- /.row-->
             </div>
         </div>
