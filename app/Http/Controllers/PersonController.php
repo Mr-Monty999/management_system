@@ -37,7 +37,6 @@ class PersonController extends Controller
     {
         $person = Person::create($request->all());
 
-
         return back()->with("success", "تم الإضافة بنجاح");
     }
 

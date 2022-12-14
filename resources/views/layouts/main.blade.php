@@ -93,7 +93,7 @@
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
                     </svg> الأفراد</a>
                 <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="base/accordion.html"><span
+                    <li class="nav-item"><a class="nav-link" href="{{ route('people.create') }}"><span
                                 class="nav-icon"></span>
                             تسجيل فرد جديد</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span
@@ -329,7 +329,7 @@
                     </li>
                 </ul> --}}
             </div>
-            <div class="header-divider"></div>
+            {{-- <div class="header-divider"></div> --}}
             {{-- <div class="container-fluid">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb my-0 ms-2">
@@ -343,7 +343,9 @@
         </header>
         <div class="body flex-grow-1 px-3">
             <div class="container-lg">
+                <br><br>
                 @yield('content')
+                <br><br><br><br>
                 {{-- <div class="row">
                      <div class="col-sm-6 col-lg-3">
                         <div class="card mb-4 text-white bg-primary">

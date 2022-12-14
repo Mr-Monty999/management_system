@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get("/", "PersonController@create");
 
 
 Route::resource("people", "PersonController");

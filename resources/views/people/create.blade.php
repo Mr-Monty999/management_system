@@ -4,6 +4,15 @@
     <div class="row">
         <form action="{{ route('people.store') }}" method="post">
             @csrf
+            @if (Session::has('success'))
+                <div class="alert alert-success text-center col-7 offset-2">{{ session('success') }}</div>
+            @endif
+            @if (Session::has('error'))
+                <div class="alert alert-danger text-center col-7 offset-2">{{ session('error') }}</div>
+            @endif
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
+            @endforeach
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">الإسم</label>
                 <input type="text" value="{{ old('name') }}" name="name" class="form-control"
@@ -11,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput2" class="form-label">النوع</label>
-                <select class="form-select" aria-label="النوع">
+                <select class="form-select" name="gender" aria-label="النوع">
                     <option value="male">ذكر</option>
                     <option value="female">أنثى</option>
                 </select>
@@ -36,14 +45,9 @@
                 <input type="number" value="{{ old('national_number') }}" name="national_number" class="form-control"
                     id="exampleFormControlInput1" placeholder="الرقم الوطني">
             </div>
-            <button type="button" type="submit" class="btn btn-success text-white offset-4">إضافة</button>
+            <button type="submit" class="btn btn-success text-white offset-4">إضافة</button>
 
-            @if (Session::has('success'))
-                <div class="alert alert-success">{{ $success }}</div>
-            @endif
-            @if (Session::has('error'))
-                <div class="alert alert-danger">{{ $error }}</div>
-            @endif
+
         </form>
     </div>
 @endsection
