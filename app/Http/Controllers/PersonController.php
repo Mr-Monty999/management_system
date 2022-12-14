@@ -15,7 +15,6 @@ class PersonController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -25,7 +24,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        //
+        return view("people.create");
     }
 
     /**
@@ -36,7 +35,10 @@ class PersonController extends Controller
      */
     public function store(StorePersonRequest $request)
     {
-        //
+        $person = Person::create($request->all());
+
+
+        return back()->with("success", "تم الإضافة بنجاح");
     }
 
     /**

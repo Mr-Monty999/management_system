@@ -57,7 +57,9 @@
         // Bootstrap ID
         gtag('config', 'UA-118965717-5');
     </script>
-    <link href="{{ asset('vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet') }}">
+    <link href="{{ asset('vendors/@coreui/chartjs/css/coreui-chartjs.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/mystyle.css') }}">
+
 </head>
 
 <body>

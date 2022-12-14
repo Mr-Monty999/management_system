@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string("name")->index();
             $table->char("gender");
-            $table->dateTime("birth_date")->nullable();
-            $table->dateTime("hire_date")->nullable();
+            $table->dateTime("birthdate")->nullable();
+            $table->dateTime("hiredate")->nullable();
             $table->double("salary")->nullable();
             $table->integer("national_number")->unique()->nullable();
             $table->softDeletes();
