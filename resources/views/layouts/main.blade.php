@@ -60,6 +60,8 @@
     <link href="{{ asset('vendors/@coreui/chartjs/css/coreui-chartjs.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/mystyle.css') }}">
 
+    @livewireStyles
+
 </head>
 
 <body>
@@ -96,12 +98,12 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('people.create') }}"><span
                                 class="nav-icon"></span>
                             تسجيل فرد جديد</a></li>
-                    <li class="nav-item"><a class="nav-link" href="base/breadcrumb.html"><span
+                    {{-- <li class="nav-item"><a class="nav-link" href="{{ route('people-worktimes.create') }}"><span
                                 class="nav-icon"></span>
                             تسجيل الدوامات</a></li>
                     <li class="nav-item"><a class="nav-link" href="base/cards.html"><span class="nav-icon"></span>
-                            تسجيل السلفيات</a></li>
-                    <li class="nav-item"><a class="nav-link" href="base/carousel.html"><span
+                            تسجيل السلفيات</a></li> --}}
+                    <li class="nav-item"><a class="nav-link" href="{{ route('people.index') }}"><span
                                 class="nav-icon"></span>
                             عرض جميع الأفراد</a></li>
                     {{--
@@ -343,9 +345,7 @@
         </header>
         <div class="body flex-grow-1 px-3">
             <div class="container-lg">
-                <br><br>
                 @yield('content')
-                <br><br><br><br>
                 {{-- <div class="row">
                      <div class="col-sm-6 col-lg-3">
                         <div class="card mb-4 text-white bg-primary">
@@ -1312,6 +1312,8 @@
     <script src="{{ asset('vendors/@coreui/utils/js/coreui-utils.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script></script>
+    @livewireScripts
+
 
 </body>
 

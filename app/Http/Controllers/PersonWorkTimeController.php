@@ -25,7 +25,7 @@ class PersonWorkTimeController extends Controller
      */
     public function create()
     {
-        //
+        return view("people.work-times.create");
     }
 
     /**

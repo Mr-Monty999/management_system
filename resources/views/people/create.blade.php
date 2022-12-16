@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="row">
+    <div class="row mar-50">
         <form action="{{ route('people.store') }}" method="post">
             @csrf
             @if (Session::has('success'))

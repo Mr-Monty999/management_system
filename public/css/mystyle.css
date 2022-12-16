@@ -1,3 +1,12 @@
 * {
     direction: rtl !important;
 }
+
+.mar-50 {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.mar-5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
