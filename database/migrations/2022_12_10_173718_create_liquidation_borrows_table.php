@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             // $table->string("borrower");
             $table->double("money_amount");
-            $table->dateTime("date");
+            $table->timestamp("date");
             $table->text("note")->nullable();
             $table->unsignedBigInteger("liquidation_id");
             $table->unsignedBigInteger("person_id");

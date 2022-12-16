@@ -21,6 +21,8 @@
                 <th>الإسم</th>
                 <th>نوع الفرد</th>
                 <th>الرقم الوطني</th>
+                <th>تاريخ الميلاد</th>
+                <th>تاريخ التعيين</th>
                 <th>الأحداث</th>
             </tr>
 
@@ -30,11 +32,18 @@
                 <tr>
                     <td>{{ $person->name }}</td>
                     <td>{{ $person->gender }}</td>
+                    <td>{{ date('Y-m-d', strtotime($person->birthdate)) }}</td>
+                    <td>{{ date('Y-m-d', strtotime($person->hiredate)) }}</td>
+
                     <td>{{ $person->national_number }}</td>
                     <td>
-                        <button class="btn btn-success text-white mar-5">عرض جميع الدوامات</button>
+                        <a class="btn btn-success text-white mar-5"
+                            href="{{ route('people.worktimes.index', $person->id) }}">عرض جميع
+                            الدوامات</a>
                         <button class="btn btn-success text-white mar-5">عرض جميع السلفيات</button>
-                        <button class="btn btn-success text-white mar-5">إضافة دوام</button>
+                        <a class="btn btn-success text-white mar-5"
+                            href="{{ route('people.worktimes.create', $person->id) }}">إضافة
+                            دوام</a>
                         <button class="btn btn-success text-white mar-5">إضافة سلفية</button>
                         <button class="btn btn-warning text-white mar-5">تعديل</button>
                         <button class="btn btn-danger text-white mar-5">حذف</button>

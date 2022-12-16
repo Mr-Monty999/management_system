@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row mar-50">
-        <form action="{{ route('people-worktimes.store') }}" method="post">
+        <form action="{{ route('people.worktimes.store', $person->id) }}" method="post">
             @csrf
             @if (Session::has('success'))
                 <div class="alert alert-success text-center col-7 offset-2">{{ session('success') }}</div>
@@ -13,16 +13,18 @@
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
             @endforeach
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">الإسم</label>
                 <input type="text" value="{{ old('name') }}" name="name" class="form-control"
                     id="exampleFormControlInput1" placeholder="الإسم">
-            </div>
+            </div> --}}
+            <h2>إضافة دوام ل{{ $person->name }}</h2>
+            <input type="text" hidden value="{{ $person->id }}" name="person_id">
             <div class="mb-3">
                 <label for="exampleFormControlInput2" class="form-label">الحضور</label>
                 <select class="form-select" name="is_present" aria-label="الحضور">
-                    <option value="true">حاضر</option>
-                    <option value="false">غائب</option>
+                    <option value="1">حاضر</option>
+                    <option value="0">غائب</option>
                 </select>
             </div>
             <div class="mb-3">

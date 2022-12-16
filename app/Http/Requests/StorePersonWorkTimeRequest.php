@@ -13,7 +13,7 @@ class StorePersonWorkTimeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class StorePersonWorkTimeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "is_present" => "required",
+            "date" => "required",
+            "note" => "nullable"
+        ];
+    }
+    public function messages()
+    {
+        return [
+            "is_present.required" => "الرجاء أختيار الحضور !",
+            "date.required" => "الرجاء إختيار التاريخ"
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePersonWorkTimeRequest;
 use App\Http\Requests\UpdatePersonWorkTimeRequest;
+use App\Models\Person;
 use App\Models\PersonWorkTime;
 
 class PersonWorkTimeController extends Controller
@@ -13,9 +14,10 @@ class PersonWorkTimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $person = Person::find($id);
+        return view("people.work-times.index", compact("person"));
     }
 
     /**
@@ -23,9 +25,10 @@ class PersonWorkTimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view("people.work-times.create");
+        $person = Person::find($id);
+        return view("people.work-times.create", compact("person"));
     }
 
     /**
@@ -36,7 +39,9 @@ class PersonWorkTimeController extends Controller
      */
     public function store(StorePersonWorkTimeRequest $request)
     {
-        //
+        $data = $request->all();
+        $personWorkTime = PersonWorkTime::create($data);
+        return back()->with(["success" => "تم إضافة الدوام بنجاح"]);
     }
 
     /**

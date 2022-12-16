@@ -18,7 +18,7 @@ return new class extends Migration
             $table->boolean("is_present");
             $table->string("driver");
             $table->text("note")->nullable();
-            $table->dateTime("date");
+            $table->timestamp("date");
             $table->unsignedBigInteger("vehicle_id");
             $table->softDeletes();
             $table->timestamps();
