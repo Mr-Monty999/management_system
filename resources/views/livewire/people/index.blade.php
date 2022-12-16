@@ -10,7 +10,11 @@
     @foreach ($errors->all() as $error)
         <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
     @endforeach
-
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">بحث</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" wire:model="pattern"
+            placeholder="بحث بالإسم,الرقم الوطني,المرتب">
+    </div>
     <table class="table">
         <thead class="table-dark">
             <tr>
@@ -22,19 +26,26 @@
 
         </thead>
         <tbody>
-            <tr>
-                <td>منتصر محمد عبدالله ادم محمد عثمان</td>
-                <td>عامل</td>
-                <td>1444444488888888888</td>
-                <td>
-                    <button class="btn btn-success text-white mar-5">عرض جميع الدوامات</button>
-                    <button class="btn btn-success text-white mar-5">عرض جميع السلفيات</button>
-                    <button class="btn btn-success text-white mar-5">إضافة دوام</button>
-                    <button class="btn btn-success text-white mar-5">إضافة سلفية</button>
+            @foreach ($people as $person)
+                <tr>
+                    <td>{{ $person->name }}</td>
+                    <td>{{ $person->gender }}</td>
+                    <td>{{ $person->national_number }}</td>
+                    <td>
+                        <button class="btn btn-success text-white mar-5">عرض جميع الدوامات</button>
+                        <button class="btn btn-success text-white mar-5">عرض جميع السلفيات</button>
+                        <button class="btn btn-success text-white mar-5">إضافة دوام</button>
+                        <button class="btn btn-success text-white mar-5">إضافة سلفية</button>
+                        <button class="btn btn-warning text-white mar-5">تعديل</button>
+                        <button class="btn btn-danger text-white mar-5">حذف</button>
 
-                </td>
-            </tr>
+
+                    </td>
+                </tr>
+            @endforeach
+
         </tbody>
     </table>
+    {!! $people->links() !!}
 
 </div>

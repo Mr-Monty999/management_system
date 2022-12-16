@@ -21,8 +21,8 @@
             <div class="mb-3">
                 <label for="exampleFormControlInput2" class="form-label">النوع</label>
                 <select class="form-select" name="gender" aria-label="النوع">
-                    <option value="male">ذكر</option>
-                    <option value="female">أنثى</option>
+                    <option value="ذكر">ذكر</option>
+                    <option value="أنثى">أنثى</option>
                 </select>
             </div>
             <div class="mb-3">
