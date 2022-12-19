@@ -50,7 +50,7 @@ class PersonWorkTimeController extends Controller
      * @param  \App\Models\PersonWorkTime  $personWorkTime
      * @return \Illuminate\Http\Response
      */
-    public function show(PersonWorkTime $personWorkTime)
+    public function show($personId, PersonWorkTime $personWorkTime)
     {
         //
     }
@@ -61,9 +61,11 @@ class PersonWorkTimeController extends Controller
      * @param  \App\Models\PersonWorkTime  $personWorkTime
      * @return \Illuminate\Http\Response
      */
-    public function edit(PersonWorkTime $personWorkTime)
+    public function edit($personId,  $personWorkTimeId)
     {
-        //
+        $person = Person::find($personId);
+        $personWorkTime = PersonWorkTime::find($personWorkTimeId);
+        return view("people.work-times.edit", compact("personWorkTime", "person"));
     }
 
     /**
@@ -73,9 +75,11 @@ class PersonWorkTimeController extends Controller
      * @param  \App\Models\PersonWorkTime  $personWorkTime
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePersonWorkTimeRequest $request, PersonWorkTime $personWorkTime)
+    public function update(UpdatePersonWorkTimeRequest $request, $personId, $personWorkTimeId)
     {
-        //
+        $personWorkTime = PersonWorkTime::find($personWorkTimeId);
+        $personWorkTime->update($request->all());
+        return back()->with(["success" => "تم تعديل الدوام بنجاح"]);
     }
 
     /**

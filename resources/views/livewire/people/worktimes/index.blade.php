@@ -40,7 +40,8 @@
                     <td>{{ date('Y-m-d', strtotime($personWorkTime->date)) }}</td>
                     <td>{{ $personWorkTime->note }}</td>
                     <td>
-                        <button class="btn btn-warning text-white mar-5">تعديل</button>
+                        <a href="{{ route('people.worktimes.edit', [$person->id, $personWorkTime->id]) }}"
+                            class="btn btn-warning text-white mar-5">تعديل</a>
                         <button class="btn btn-danger text-white mar-5">حذف</button>
                     </td>
                 </tr>
