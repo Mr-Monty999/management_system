@@ -58,9 +58,10 @@ class PersonController extends Controller
      * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function edit(Person $person)
+    public function edit($personId)
     {
-        //
+        $person = Person::find($personId);
+        return view("people.edit", compact("person"));
     }
 
     /**
@@ -70,9 +71,11 @@ class PersonController extends Controller
      * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePersonRequest $request, Person $person)
+    public function update(UpdatePersonRequest $request,  $personId)
     {
-        //
+        $person = Person::find($personId);
+        $person->update($request->all());
+        return back()->with("success", "تم تعديل الفرد بنجاح");
     }
 
     /**
@@ -81,8 +84,9 @@ class PersonController extends Controller
      * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Person $person)
+    public function destroy($personId)
     {
-        //
+        $person = Person::find($personId)->delete();
+        return back()->with("success", "تم حذف الفرد بنجاح");
     }
 }

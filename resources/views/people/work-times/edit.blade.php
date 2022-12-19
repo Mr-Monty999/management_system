@@ -19,7 +19,7 @@
                 <input type="text" value="{{ old('name') }}" name="name" class="form-control"
                     id="exampleFormControlInput1" placeholder="الإسم">
             </div> --}}
-            <h2>تعديل دوام ل{{ $person->name }}</h2>
+            <h2>تعديل دوام رقم {{ $personWorkTime->id }} ل{{ $person->name }}</h2>
             <input type="text" hidden value="{{ $person->id }}" name="person_id">
             <div class="mb-3">
                 <label for="exampleFormControlInput2" class="form-label">الحضور</label>
@@ -36,10 +36,12 @@
 
             <div class="mb-3">
                 <label for="exampleFormControlInput5" class="form-label">ملاحظة</label>
-                <textarea type="note" value="{{ $personWorkTime->note }}" name="note" class="form-control"
-                    id="exampleFormControlInput1" id="" cols="30" rows="10"></textarea>
+                <textarea type="note" name="note" class="form-control" id="exampleFormControlInput1" id="" cols="30"
+                    rows="10">{{ $personWorkTime->note }}</textarea>
             </div>
             <button type="submit" class="btn btn-success text-white offset-4">تعديل</button>
+            <a href="{{ route('people.index') }}" class="btn btn-dark text-white offset-4">عرض جميع الأفراد</a>
+
 
 
         </form>

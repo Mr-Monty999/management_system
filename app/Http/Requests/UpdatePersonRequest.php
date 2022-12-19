@@ -13,7 +13,7 @@ class UpdatePersonRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,27 @@ class UpdatePersonRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "required",
+            "gender" => "required",
+            "hiredate" => "nullable|date",
+            "birthdate" => "nullable|date",
+            "salary" => "nullable|numeric",
+            "national_number" => "nullable|numeric|unique:people,national_number," . $this->route("person")
+        ];
+    }
+    public function messages()
+    {
+        return [
+            "name.required" => "الرجاء كتابة الإسم !",
+            "gender.required" => "الرجاء إختيار النوع !",
+            // "hiredate.required" => "الرجاء تحديد تاريخ التعيين !",
+            // "birthdate.required" => "الرجاء إختيار تاريخ الميلاد !",
+            // "salary.required" => "الرجاء كتابة المرتب !",
+            "salary.numeric" => "الرجاء كتابة أرقام فقط في المرتب",
+            "national_number.unique" => "الرقم الوطني موجود بالفعل !",
+            "national_number.numeric" => "الرجاء كتابة أرقام فقط في الرقم الوطني !",
+
+
         ];
     }
 }

@@ -45,7 +45,9 @@
                             href="{{ route('people.worktimes.create', $person->id) }}">إضافة
                             دوام</a>
                         <button class="btn btn-success text-white mar-5">إضافة سلفية</button>
-                        <button class="btn btn-warning text-white mar-5">تعديل</button>
+                        <a href="{{ route('people.edit', $person->id) }}"
+                            class="btn btn-warning text-white mar-5">تعديل</a
+                            href="{{ route('people.edit', $person->id) }}">
                         <button class="btn btn-danger text-white mar-5">حذف</button>
 
 

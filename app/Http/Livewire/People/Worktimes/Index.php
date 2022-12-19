@@ -19,6 +19,12 @@ class Index extends Component
     public $personWorkTimesCount;
     public $personUnAttendTimesCount;
 
+    public function deleteWorkTime($personWorkTimeId)
+    {
+        $personWorkTime = PersonWorkTime::find($personWorkTimeId);
+        $personWorkTime->delete();
+        session()->flash("success", "تم حذف الدوام بنجاح");
+    }
     public function render()
     {
         // Carbon::getLo
