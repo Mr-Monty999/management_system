@@ -14,6 +14,13 @@ class Index extends Component
 
     public $pattern;
 
+    public function deletePerson($id)
+    {
+        $person = Person::find($id);
+        $person->delete();
+        session()->flash("success", "تم حذف الفرد بنجاح");
+    }
+
     public function render()
     {
         $people = Person::where("name", "LIKE", "%$this->pattern%")

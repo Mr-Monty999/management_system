@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePersonBorrowRequest;
 use App\Http\Requests\UpdatePersonBorrowRequest;
+use App\Models\Person;
 use App\Models\PersonBorrow;
 
 class PersonBorrowController extends Controller
@@ -13,9 +14,10 @@ class PersonBorrowController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $person = Person::find($id);
+        return view("people.borrows.index", compact("person"));
     }
 
     /**
@@ -23,9 +25,10 @@ class PersonBorrowController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($personId)
     {
-        //
+        $person = Person::find($personId);
+        return view("people.borrows.create", compact("person"));
     }
 
     /**
@@ -34,9 +37,12 @@ class PersonBorrowController extends Controller
      * @param  \App\Http\Requests\StorePersonBorrowRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePersonBorrowRequest $request)
+    public function store(StorePersonBorrowRequest $request, $personId)
     {
-        //
+        $data = $request->all();
+        $data["person_id"] = $personId;
+        $personBorrow = PersonBorrow::create($data);
+        return back()->with(["success" => "تم إضافة السلفية بنجاح"]);
     }
 
     /**

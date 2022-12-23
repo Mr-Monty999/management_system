@@ -18,3 +18,4 @@ Route::get("/", "PersonController@create");
 
 Route::resource("people", "PersonController");
 Route::resource("people.worktimes", "PersonWorkTimeController");
+Route::resource("people.borrows", "PersonBorrowController");

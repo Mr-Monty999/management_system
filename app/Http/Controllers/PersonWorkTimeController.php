@@ -37,9 +37,10 @@ class PersonWorkTimeController extends Controller
      * @param  \App\Http\Requests\StorePersonWorkTimeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePersonWorkTimeRequest $request)
+    public function store(StorePersonWorkTimeRequest $request, $personId)
     {
         $data = $request->all();
+        $data["person_id"] = $personId;
         $personWorkTime = PersonWorkTime::create($data);
         return back()->with(["success" => "تم إضافة الدوام بنجاح"]);
     }

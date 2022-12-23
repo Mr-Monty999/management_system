@@ -40,15 +40,18 @@
                         <a class="btn btn-success text-white mar-5"
                             href="{{ route('people.worktimes.index', $person->id) }}">عرض جميع
                             الدوامات</a>
-                        <button class="btn btn-success text-white mar-5">عرض جميع السلفيات</button>
+                        <a href="{{ route('people.borrows.index', $person->id) }}"
+                            class="btn btn-success text-white mar-5">عرض جميع السلفيات</a>
                         <a class="btn btn-success text-white mar-5"
                             href="{{ route('people.worktimes.create', $person->id) }}">إضافة
                             دوام</a>
-                        <button class="btn btn-success text-white mar-5">إضافة سلفية</button>
+                        <a href="{{ route('people.borrows.create', $person->id) }}"
+                            class="btn btn-success text-white mar-5">إضافة سلفية</a>
                         <a href="{{ route('people.edit', $person->id) }}"
                             class="btn btn-warning text-white mar-5">تعديل</a
                             href="{{ route('people.edit', $person->id) }}">
-                        <button class="btn btn-danger text-white mar-5">حذف</button>
+                        <button class="btn btn-danger text-white mar-5"
+                            wire:click="deletePerson({{ $person->id }})">حذف</button>
 
 
                     </td>
