@@ -16,6 +16,7 @@ class Index extends Component
 
     public $pattern;
     public $person;
+    public $personBorrowsSum;
 
 
     public function deleteBorrow($personBorrowId)
@@ -27,6 +28,7 @@ class Index extends Component
     public function render()
     {
         // Carbon::getLo
+        $this->personBorrowsSum = PersonService::personBorrowsSum($this->person->id);
 
         $personBorrows = PersonBorrow::where("person_id", $this->person->id)->latest()
             ->paginate(15);

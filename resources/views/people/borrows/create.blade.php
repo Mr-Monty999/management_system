@@ -33,6 +33,7 @@
             </div>
 
             <button type="submit" class="btn btn-success text-white offset-4">إضافة</button>
+            <a href="{{ route('people.index') }}" class="btn btn-dark text-white">عرض جميع الأفراد</a>
 
 
         </form>

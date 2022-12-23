@@ -62,9 +62,11 @@ class PersonBorrowController extends Controller
      * @param  \App\Models\PersonBorrow  $personBorrow
      * @return \Illuminate\Http\Response
      */
-    public function edit(PersonBorrow $personBorrow)
+    public function edit($personId,  $personBorrowId)
     {
-        //
+        $person = Person::find($personId);
+        $personBorrow = PersonBorrow::find($personBorrowId);
+        return view("people.borrows.edit", compact("personBorrow", "person"));
     }
 
     /**
@@ -74,9 +76,13 @@ class PersonBorrowController extends Controller
      * @param  \App\Models\PersonBorrow  $personBorrow
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePersonBorrowRequest $request, PersonBorrow $personBorrow)
+    public function update(UpdatePersonBorrowRequest $request, $personId, $personBorrowId)
     {
-        //
+        $data = $request->all();
+        $data["person_id"] = $personId;
+        $personBorrow = PersonBorrow::find($personBorrowId);
+        $personBorrow->update($data);
+        return back()->with(["success" => "تم تعديل السلفية بنجاح"]);
     }
 
     /**

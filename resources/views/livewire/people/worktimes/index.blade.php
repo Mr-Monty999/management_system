@@ -10,7 +10,8 @@
     <h2>مجموع الدوامات = {{ $personWorkTimesCount }}</h2>
     <h2>مجموع الغياب = {{ $personUnAttendTimesCount }}</h2>
     <a href="{{ route('people.index') }}" class="btn btn-dark text-white offset-4 mar-5">عرض جميع الأفراد</a>
-
+    <a href="{{ route('people.worktimes.create', $person->id) }}" class="btn btn-dark text-white mar-5">إضافة
+        دوام</a>
 
     @csrf
     @if (Session::has('success'))

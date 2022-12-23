@@ -7,7 +7,10 @@
             placeholder="بحث بالتاريخ">
     </div> --}}
     <h1>سلفيات {{ $person->name }}</h1>
-    <a href="{{ route('people.index') }}" class="btn btn-dark text-white offset-4 mar-5">عرض جميع الأفراد</a>
+    <h2>مجموع السلفيات = {{ number_format($personBorrowsSum) }}</h2>
+    <a href="{{ route('people.index') }}" class="btn btn-dark text-white offset-5 mar-5">عرض جميع الأفراد</a>
+    <a href="{{ route('people.borrows.create', $person->id) }}" class="btn btn-dark text-white mar-5">إضافة
+        سلفية</a>
 
 
     @csrf
@@ -34,7 +37,7 @@
         <tbody>
             @foreach ($personBorrows as $personBorrow)
                 <tr>
-                    <td>{{ $personBorrow->money_amount }}</td>
+                    <td>{{ number_format($personBorrow->money_amount) }}</td>
                     <td>{{ date('Y-m-d', strtotime($personBorrow->date)) }}</td>
                     <td>{{ $personBorrow->note }}</td>
                     <td>
