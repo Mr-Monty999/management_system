@@ -58,9 +58,10 @@ class StockController extends Controller
      * @param  \App\Models\Stock  $stock
      * @return \Illuminate\Http\Response
      */
-    public function edit(Stock $stock)
+    public function edit($id)
     {
-        //
+        $stock = Stock::find($id);
+        return view("stock.edit", compact("stock"));
     }
 
     /**
@@ -70,9 +71,12 @@ class StockController extends Controller
      * @param  \App\Models\Stock  $stock
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateStockRequest $request, Stock $stock)
+    public function update(UpdateStockRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $stock = Stock::find($id);
+        $stock->update($data);
+        return back()->with("success", "تم تعديل المخزون بنجاح");
     }
 
     /**
