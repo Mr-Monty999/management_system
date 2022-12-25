@@ -11,18 +11,28 @@
         <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
     @endforeach
     <div class="mb-3">
+        <label for="typeSelect" class="form-label">نوع المخزون</label>
+        <select class="form-control" wire:model="type" id="typeSelect">
+            <option value="all">كل المخزون</option>
+            <option value="in">داخل</option>
+            <option value="out">خارج</option>
+        </select>
+    </div>
+    <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">بحث</label>
         <input type="text" class="form-control" id="exampleFormControlInput1" wire:model="pattern"
-            placeholder="بحث بالإسم,الرقم الوطني,المرتب">
+            placeholder="بحث بالإسم,المستلم,المرسل,العدد">
     </div>
     <table class="table">
         <thead class="table-dark">
             <tr>
-                <th>الإسم</th>
-                <th>نوع الفرد</th>
-                <th>تاريخ الميلاد</th>
-                <th>تاريخ التعيين</th>
-                <th>الرقم الوطني</th>
+                <th>إسم المخزون</th>
+                <th>النوع</th>
+                <th>المرسل</th>
+                <th>المستلم</th>
+                <th>العدد</th>
+                <th>التاريخ</th>
+                <th>ملاحظة</th>
                 <th>الأحداث</th>
             </tr>
 
@@ -31,30 +41,27 @@
             @foreach ($stocks as $stock)
                 <tr>
                     <td>{{ $stock->name }}</td>
-                    <td>{{ $stock->gender }}</td>
                     <td>
-                        @if ($stock->birthdate)
-                            {{ date('Y-m-d', strtotime($stock->birthdate)) }}
+                        @if ($stock->type == 'in')
+                            داخل
+                        @else
+                            خارج
                         @endif
                     </td>
                     <td>
-                        @if ($stock->hiredate)
-                            {{ date('Y-m-d', strtotime($stock->hiredate)) }}
-                        @endif
+                        {{ $stock->sender }}
                     </td>
+                    <td>{{ $stock->receiver }}</td>
+                    <td>{{ $stock->count }}</td>
 
-                    <td>{{ $stock->national_number }}</td>
                     <td>
-                        <a class="btn btn-success text-white mar-5"
-                            href="{{ route('stocks.worktimes.index', $stock->id) }}">عرض جميع
-                            الدوامات</a>
-                        <a href="{{ route('stocks.borrows.index', $stock->id) }}"
-                            class="btn btn-success text-white mar-5">عرض جميع السلفيات</a>
-                        <a class="btn btn-success text-white mar-5"
-                            href="{{ route('stocks.worktimes.create', $stock->id) }}">إضافة
-                            دوام</a>
-                        <a href="{{ route('stocks.borrows.create', $stock->id) }}"
-                            class="btn btn-success text-white mar-5">إضافة سلفية</a>
+                        @if ($stock->date)
+                            {{ date('Y-m-d', strtotime($stock->date)) }}
+                        @endif
+                    </td>
+                    <td>{{ $stock->note }}</td>
+                    <td>
+
                         <a href="{{ route('stocks.edit', $stock->id) }}"
                             class="btn btn-warning text-white mar-5">تعديل</a
                             href="{{ route('stocks.edit', $stock->id) }}">

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row mar-50">
-        <form action="{{ route('stock.store') }}" method="post">
+        <form action="{{ route('stocks.store') }}" method="post">
             @csrf
             @if (Session::has('success'))
                 <div class="alert alert-success text-center col-7 offset-2">{{ session('success') }}</div>
