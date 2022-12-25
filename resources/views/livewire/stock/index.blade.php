@@ -28,38 +28,38 @@
 
         </thead>
         <tbody>
-            @foreach ($people as $person)
+            @foreach ($stocks as $stock)
                 <tr>
-                    <td>{{ $person->name }}</td>
-                    <td>{{ $person->gender }}</td>
+                    <td>{{ $stock->name }}</td>
+                    <td>{{ $stock->gender }}</td>
                     <td>
-                        @if ($person->birthdate)
-                            {{ date('Y-m-d', strtotime($person->birthdate)) }}
+                        @if ($stock->birthdate)
+                            {{ date('Y-m-d', strtotime($stock->birthdate)) }}
                         @endif
                     </td>
                     <td>
-                        @if ($person->hiredate)
-                            {{ date('Y-m-d', strtotime($person->hiredate)) }}
+                        @if ($stock->hiredate)
+                            {{ date('Y-m-d', strtotime($stock->hiredate)) }}
                         @endif
                     </td>
 
-                    <td>{{ $person->national_number }}</td>
+                    <td>{{ $stock->national_number }}</td>
                     <td>
                         <a class="btn btn-success text-white mar-5"
-                            href="{{ route('people.worktimes.index', $person->id) }}">عرض جميع
+                            href="{{ route('stocks.worktimes.index', $stock->id) }}">عرض جميع
                             الدوامات</a>
-                        <a href="{{ route('people.borrows.index', $person->id) }}"
+                        <a href="{{ route('stocks.borrows.index', $stock->id) }}"
                             class="btn btn-success text-white mar-5">عرض جميع السلفيات</a>
                         <a class="btn btn-success text-white mar-5"
-                            href="{{ route('people.worktimes.create', $person->id) }}">إضافة
+                            href="{{ route('stocks.worktimes.create', $stock->id) }}">إضافة
                             دوام</a>
-                        <a href="{{ route('people.borrows.create', $person->id) }}"
+                        <a href="{{ route('stocks.borrows.create', $stock->id) }}"
                             class="btn btn-success text-white mar-5">إضافة سلفية</a>
-                        <a href="{{ route('people.edit', $person->id) }}"
+                        <a href="{{ route('stocks.edit', $stock->id) }}"
                             class="btn btn-warning text-white mar-5">تعديل</a
-                            href="{{ route('people.edit', $person->id) }}">
+                            href="{{ route('stocks.edit', $stock->id) }}">
                         <button class="btn btn-danger text-white mar-5"
-                            wire:click="deletePerson({{ $person->id }})">حذف</button>
+                            wire:click="deleteStock({{ $stock->id }})">حذف</button>
 
 
                     </td>
@@ -68,6 +68,6 @@
 
         </tbody>
     </table>
-    {!! $people->links() !!}
+    {!! $stocks->links() !!}
 
 </div>

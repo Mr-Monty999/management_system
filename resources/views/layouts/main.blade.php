@@ -145,11 +145,11 @@
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-cursor"></use>
                     </svg> المخازن</a>
                 <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="buttons/buttons.html"><span
+                    <li class="nav-item"><a class="nav-link" href="{{ route('stocks.create') }}"><span
                                 class="nav-icon"></span>
-                            إضافة حراك جديد</a></li>
-                    <li class="nav-item"><a class="nav-link" href="buttons/button-group.html"><span
-                                class="nav-icon"></span> عرض جميع الحراكات</a></li>
+                            إضافة مخزون</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('stocks.index') }}"><span
+                                class="nav-icon"></span> عرض جميع المخزون</a></li>
                     {{-- <li class="nav-item"><a class="nav-link" href="buttons/dropdowns.html"><span
                                 class="nav-icon"></span> Dropdowns</a></li> --}}
                 </ul>

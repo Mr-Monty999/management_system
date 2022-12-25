@@ -25,7 +25,7 @@ class StockController extends Controller
      */
     public function create()
     {
-        //
+        return view("stock.create");
     }
 
     /**
@@ -36,7 +36,9 @@ class StockController extends Controller
      */
     public function store(StoreStockRequest $request)
     {
-        //
+        $data = $request->all();
+        $stock = Stock::create($data);
+        return back()->with("success", "تم إضافة المخزون بنجاح");
     }
 
     /**

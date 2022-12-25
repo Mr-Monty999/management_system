@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("type");
+            $table->string("type");
             $table->string("receiver")->index();
             $table->string("sender")->index();
+            $table->string("count")->nullable();
             $table->dateTime("date")->nullable();
             $table->text("note")->nullable();
             $table->softDeletes();

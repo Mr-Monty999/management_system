@@ -13,7 +13,7 @@ class StoreStockRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,26 @@ class StoreStockRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "required",
+            "type" => "required",
+            "date" => "required|date",
+            "sender" => "required",
+            "receiver" => "required",
+            "type" => "required"
+        ];
+    }
+    public function messages()
+    {
+        return [
+            "name.required" => "الرجاء كتابة الإسم !",
+            "type.required" => "الرجاء إختيار النوع !",
+            "date.required" => "الرجاء تحديد التاريخ !",
+            "sender.required" => "الرجاء كتابة إسم المرسل !",
+            "receiver.required" => "الرجاء كتابة إسم المستلم !",
+            "type.required" => "الرجاء إختيار نوع المخزون !"
+
+
+
         ];
     }
 }
