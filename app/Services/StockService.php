@@ -11,27 +11,29 @@ class StockService
 {
     public static function getAllInStocks($pattern = "")
     {
-        $stocks = Stock::where("type", "in");
 
-        return $stocks->where("name", "LIKE", "%$pattern%")
-            ->orWhere("sender", "LIKE", "%$pattern%")
-            ->orWhere("receiver", "LIKE", "%$pattern%")
-            ->orWhere("count", "LIKE", "%$pattern%")
-            ->orWhere("note", "LIKE", "%$pattern%")
-            // ->where("type", '=', "in")
+        return Stock::where("type", '=', "in")
+            ->where(function ($q) use ($pattern) {
+                $q->orWhere("name", "LIKE", "%$pattern%")
+                    ->orWhere("sender", "LIKE", "%$pattern%")
+                    ->orWhere("receiver", "LIKE", "%$pattern%")
+                    ->orWhere("count", "LIKE", "%$pattern%")
+                    ->orWhere("note", "LIKE", "%$pattern%");
+            })
             ->latest()
             ->paginate(10);
     }
     public static function getAllOutStocks($pattern = "")
     {
-        $stocks = Stock::where("type", "in");
 
-        return $stocks->where("name", "LIKE", "%$pattern%")
-            ->orWhere("sender", "LIKE", "%$pattern%")
-            ->orWhere("receiver", "LIKE", "%$pattern%")
-            ->orWhere("count", "LIKE", "%$pattern%")
-            ->orWhere("note", "LIKE", "%$pattern%")
-            // ->where("type", '=', "out")
+        return Stock::where("type", '=', "out")
+            ->where(function ($q) use ($pattern) {
+                $q->orWhere("name", "LIKE", "%$pattern%")
+                    ->orWhere("sender", "LIKE", "%$pattern%")
+                    ->orWhere("receiver", "LIKE", "%$pattern%")
+                    ->orWhere("count", "LIKE", "%$pattern%")
+                    ->orWhere("note", "LIKE", "%$pattern%");
+            })
             ->latest()
             ->paginate(10);
     }
