@@ -20,3 +20,4 @@ Route::resource("people", "PersonController");
 Route::resource("people.worktimes", "PersonWorkTimeController");
 Route::resource("people.borrows", "PersonBorrowController");
 Route::resource("stocks", "StockController");
+Route::resource("vehicles", "VehicleController");

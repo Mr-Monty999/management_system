@@ -150,7 +150,12 @@
                             إضافة مخزون</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('stocks.index') }}"><span
                                 class="nav-icon"></span> عرض جميع المخزون</a></li>
-                    {{-- <li class="nav-item"><a class="nav-link" href="buttons/dropdowns.html"><span
+                    {{-- <li class="nav-item"><a class="nav-link" href="butto                    <li class="nav-item"><a class="nav-link" href="forms/select.html"> تسجل دوام جديد</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forms/checks-radios.html"> تسجيل حراك إنتاج
+                            جديد</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="forms/range.html"> تعبئة وقود</a></li>
+                    <li class="nav-item"><a class="nav-link" href="forms/input-group.html"> صيانة</a></li>ns/dropdowns.html"><span
                                 class="nav-icon"></span> Dropdowns</a></li> --}}
                 </ul>
             </li>
@@ -163,15 +168,11 @@
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
                     </svg> الآليات</a>
                 <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="forms/form-control.html"> تسجيل آلية جديدة</a>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('vehicles.create') }}"> تسجيل آلية
+                            جديدة</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="forms/select.html"> تسجل دوام جديد</a></li>
-                    <li class="nav-item"><a class="nav-link" href="forms/checks-radios.html"> تسجيل حراك إنتاج
-                            جديد</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="forms/range.html"> تعبئة وقود</a></li>
-                    <li class="nav-item"><a class="nav-link" href="forms/input-group.html"> صيانة</a></li>
-                    <li class="nav-item"><a class="nav-link" href="forms/floating-labels.html"> عرض جميع الآليات</a>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('vehicles.index') }}"> عرض جميع
+                            الآليات</a>
                     </li>
                     {{-- <li class="nav-item"><a class="nav-link" href="forms/layout.html"> Layout</a></li>
                     <li class="nav-item"><a class="nav-link" href="forms/validation.html"> Validation</a></li> --}}
