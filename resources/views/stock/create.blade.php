@@ -54,6 +54,7 @@
             </div>
 
             <button type="submit" class="btn btn-success text-white offset-4">إضافة</button>
+            <a href="{{ route('stocks.index') }}" class="btn btn-dark text-white">عرض جميع المخزون</a>
 
 
         </form>

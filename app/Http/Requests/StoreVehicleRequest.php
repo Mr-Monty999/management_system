@@ -13,7 +13,7 @@ class StoreVehicleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class StoreVehicleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => "required",
+            "number" => "required|unique:vehicles,number"
+        ];
+    }
+    public function messages()
+    {
+        return [
+            "name.required" => "الرجاء إدخال إسم الآلية !",
+            "number.required" => "الرجاء إدخال رقم الآلية !",
+            "number.unique" => "رقم الآلية موجود بالفعل !"
         ];
     }
 }

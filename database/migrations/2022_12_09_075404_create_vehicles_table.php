@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->string("name")->index();
-            $table->integer("number")->unique()->unsigned();
+            $table->string("number")->unique();
             $table->softDeletes();
             $table->timestamps();
         });

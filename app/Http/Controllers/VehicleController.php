@@ -15,6 +15,7 @@ class VehicleController extends Controller
      */
     public function index()
     {
+        return view("vehicles.index");
     }
 
     /**
@@ -35,7 +36,10 @@ class VehicleController extends Controller
      */
     public function store(StoreVehicleRequest $request)
     {
-        //
+        $data = $request->all();
+        $vehicle =  Vehicle::create($data);
+
+        return back()->with("success", "تم إضافة الآلية بنجاح");
     }
 
     /**
@@ -55,9 +59,10 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehicle $vehicle)
+    public function edit($vehicleId)
     {
-        //
+        $vehicle = Vehicle::find($vehicleId);
+        return view("vehicles.edit", compact("vehicle"));
     }
 
     /**
@@ -67,9 +72,13 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVehicleRequest $request, Vehicle $vehicle)
+    public function update(UpdateVehicleRequest $request,  $vehicleId)
     {
-        //
+        $data = $request->all();
+        $vehicle =  Vehicle::find($vehicleId);
+        $vehicle->update($data);
+
+        return back()->with("success", "تم تعديل الآلية بنجاح");
     }
 
     /**

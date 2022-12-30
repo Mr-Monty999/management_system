@@ -23,6 +23,7 @@
                 <th>تاريخ الميلاد</th>
                 <th>تاريخ التعيين</th>
                 <th>الرقم الوطني</th>
+                <th>المرتب</th>
                 <th>الأحداث</th>
             </tr>
 
@@ -42,8 +43,10 @@
                             {{ date('Y-m-d', strtotime($person->hiredate)) }}
                         @endif
                     </td>
-
                     <td>{{ $person->national_number }}</td>
+                    <td>
+                        {{ number_format($person->salary) }}
+                    </td>
                     <td>
                         <a class="btn btn-success text-white mar-5"
                             href="{{ route('people.worktimes.index', $person->id) }}">عرض جميع
