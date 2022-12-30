@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVehicleWorkTimeRequest;
 use App\Http\Requests\UpdateVehicleWorkTimeRequest;
+use App\Models\Vehicle;
 use App\Models\VehicleWorkTime;
 
 class VehicleWorkTimeController extends Controller
@@ -13,9 +14,10 @@ class VehicleWorkTimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+        return view("vehicles.work-times.index", compact("vehicle"));
     }
 
     /**
@@ -23,9 +25,10 @@ class VehicleWorkTimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($vehicleId)
     {
-        //
+        $vehicle = Vehicle::find($vehicleId);
+        return view("vehicles.work-times.create", compact("vehicle"));
     }
 
     /**
@@ -34,9 +37,12 @@ class VehicleWorkTimeController extends Controller
      * @param  \App\Http\Requests\StoreVehicleWorkTimeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreVehicleWorkTimeRequest $request)
+    public function store(StoreVehicleWorkTimeRequest $request, $vehicleId)
     {
-        //
+        $data = $request->all();
+        $data["vehicle_id"] = $vehicleId;
+        $vehicleWorkTime = VehicleWorkTime::create($data);
+        return back()->with(["success" => "تم إضافة الدوام بنجاح"]);
     }
 
     /**

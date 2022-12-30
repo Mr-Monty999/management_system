@@ -13,7 +13,7 @@ class StoreVehicleWorkTimeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,22 @@ class StoreVehicleWorkTimeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "is_present" => "required",
+            "driver" => "required",
+            "overtime" => "numeric|nullable",
+            "hours_count" => "numeric|nullable",
+            "date" => "required|date",
+            "note" => "nullable"
+        ];
+    }
+    public function messages()
+    {
+        return [
+            "is_present.required" => "الرجاء أختيار الحضور !",
+            "driver.required" => "الرجاء إدخال إسم السائق !",
+            "overtime.numeric" => "الرجاء إدخال أرقام فقط في الزمن الإضافي !",
+            "hours_count.numeric" => "الرجاء إدخال أرقام فقط في عدد الساعات !",
+            "date.required" => "الرجاء إختيار التاريخ"
         ];
     }
 }

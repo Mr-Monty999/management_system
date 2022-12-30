@@ -40,9 +40,8 @@
                     rows="10">{{ $personWorkTime->note }}</textarea>
             </div>
             <button type="submit" class="btn btn-success text-white offset-4">تعديل</button>
-            <a href="{{ route('people.index') }}" class="btn btn-dark text-white">عرض جميع الأفراد</a>
-            <a href="{{ route('people.worktimes.index', $person->id) }}" class="btn btn-dark text-white">عرض جميع
-                الدوامات</a>
+            <a href="{{ route('people.index') }}" class="btn btn-dark text-white">عرض جميع الآليات</a>
+
 
 
         </form>

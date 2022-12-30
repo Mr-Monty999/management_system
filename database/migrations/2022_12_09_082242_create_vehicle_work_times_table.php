@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->boolean("is_present");
             $table->string("driver");
-            $table->time("over_time")->nullable();
-            $table->integer("hours_count")->nullable();
+            $table->integer("overtime")->default(0);
+            $table->integer("hours_count")->default(0);
             $table->text("note")->nullable();
             $table->timestamp("date");
             $table->unsignedBigInteger("vehicle_id");

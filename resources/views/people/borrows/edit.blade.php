@@ -38,6 +38,8 @@
             </div>
             <button type="submit" class="btn btn-success text-white offset-4">تعديل</button>
             <a href="{{ route('people.index') }}" class="btn btn-dark text-white">عرض جميع الأفراد</a>
+            <a href="{{ route('people.borrows.index', $person->id) }}" class="btn btn-dark text-white">عرض جميع
+                السلفيات</a>
 
 
 

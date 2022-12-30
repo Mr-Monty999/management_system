@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Vehicles;
 
 use App\Models\Vehicle;
+use App\Services\VehicleService;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -22,7 +23,7 @@ class Index extends Component
 
     public function render()
     {
-        $vehicles = Vehicle::paginate(15);
+        $vehicles = VehicleService::getAllVehicles($this->pattern);
         return view('livewire.vehicles.index', ["vehicles" => $vehicles]);
     }
 }
