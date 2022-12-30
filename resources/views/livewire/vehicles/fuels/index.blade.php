@@ -1,7 +1,6 @@
 <div>
 
 
-
     @csrf
     @if (Session::has('success'))
         <div class="alert alert-success text-center col-7 offset-2">{{ session('success') }}</div>
@@ -12,28 +11,22 @@
     @foreach ($errors->all() as $error)
         <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
     @endforeach
-
-    <h1>دوامات الآلية {{ $vehicle->name }} رقم {{ $vehicle->number }}</h1>
-    <h2>مجموع الحضور = {{ number_format($vehicleWorkTimesCount) }}</h2>
-    <h2>مجموع الغياب = {{ number_format($vehicleUnAttendTimesCount) }}</h2>
-    <h2>عدد الساعات الإضافية = {{ number_format($vehicleOverTimeCount) }}</h2>
-    <h2>عدد الساعات الأساسية = {{ number_format($vehicleHoursCount) }}</h2>
+    <h1>وقود الآلية {{ $vehicle->name }} رقم {{ $vehicle->number }}</h1>
+    <h2>عدد الوقود بالتر = {{ number_format($vehicleFuelsCount) }}</h2>
     <a href="{{ route('vehicles.index') }}" class="btn btn-dark text-white offset-4 mar-5">عرض جميع الآليات</a>
-    <a href="{{ route('vehicles.worktimes.create', $vehicle->id) }}" class="btn btn-dark text-white mar-5">إضافة
+    <a href="{{ route('vehicles.fuels.create', $vehicle->id) }}" class="btn btn-dark text-white mar-5">إضافة
         دوام</a>
-
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">بحث</label>
         <input type="text" class="form-control" id="exampleFormControlInput1" wire:model="pattern"
-            placeholder="بحث بالإسم,عدد الساعات الأساسية,عدد الساعات الإضافية">
+            placeholder="بحث بإسم السائق,المسؤول,كمية الوقود">
     </div>
     <table class="table">
         <thead class="table-dark">
             <tr>
                 <th>السائق</th>
-                <th>الدوام</th>
-                <th>الساعات الإضافية</th>
-                <th>الساعات الأساسية</th>
+                <th>المسؤول</th>
+                <th>كمية الوقود (لتر)</th>
                 <th>التاريخ</th>
                 <th>ملاحظة</th>
                 <th>الأحداث</th>
@@ -41,23 +34,18 @@
 
         </thead>
         <tbody>
-            @foreach ($vehicleWorkTimes as $vehicleWorkTime)
+            @foreach ($vehicleFuels as $vehicleFuel)
                 <tr>
-                    <td>{{ $vehicleWorkTime->driver }}</td>
-                    @if ($vehicleWorkTime->is_present == 1)
-                        <td>حاضر</td>
-                    @else
-                        <td>غائب</td>
-                    @endif
-                    <td>{{ $vehicleWorkTime->overtime }}</td>
-                    <td>{{ $vehicleWorkTime->hours_count }}</td>
-                    <td>{{ date('Y-m-d', strtotime($vehicleWorkTime->date)) }}</td>
-                    <td>{{ $vehicleWorkTime->note }}</td>
+                    <td>{{ $vehicleFuel->driver }}</td>
+                    <td>{{ $vehicleFuel->responsible }}</td>
+                    <td>{{ $vehicleFuel->fuel_quantity }}</td>
+                    <td>{{ date('Y-m-d', strtotime($vehicleFuel->date)) }}</td>
+                    <td>{{ $vehicleFuel->note }}</td>
                     <td>
-                        <a href="{{ route('vehicles.worktimes.edit', [$vehicle->id, $vehicleWorkTime->id]) }}"
+                        <a href="{{ route('vehicles.fuels.edit', [$vehicle->id, $vehicleFuel->id]) }}"
                             class="btn btn-warning text-white mar-5">تعديل</a>
                         <button data-toggle="modal" data-target="#exampleModal"
-                            wire:click="deleteWorkTime({{ $vehicleWorkTime->id }})"
+                            wire:click="deleteFuel({{ $vehicleFuel->id }})"
                             class="btn btn-danger text-white mar-5">حذف</button>
                     </td>
                 </tr>
@@ -65,7 +53,7 @@
 
         </tbody>
     </table>
-    {!! $vehicleWorkTimes->links() !!}
+    {!! $vehicleFuels->links() !!}
     <!-- Button trigger modal -->
     {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Launch demo modal

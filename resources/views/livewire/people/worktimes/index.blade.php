@@ -7,7 +7,7 @@
             placeholder="بحث بالتاريخ">
     </div> --}}
     <h1>دوامات {{ $person->name }}</h1>
-    <h2>مجموع الدوامات = {{ number_format($personWorkTimesCount) }}</h2>
+    <h2>مجموع الحضور = {{ number_format($personWorkTimesCount) }}</h2>
     <h2>مجموع الغياب = {{ number_format($personUnAttendTimesCount) }}</h2>
     <a href="{{ route('people.index') }}" class="btn btn-dark text-white offset-4 mar-5">عرض جميع الأفراد</a>
     <a href="{{ route('people.worktimes.create', $person->id) }}" class="btn btn-dark text-white mar-5">إضافة

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Vehicle;
+use App\Models\VehicleFuel;
 use App\Models\VehicleWorkTime;
 
 /**
@@ -23,6 +24,8 @@ class VehicleService
         $vehicleWorkTimes = VehicleWorkTime::where("vehicle_id", $vehilceId)
             ->where(function ($q) use ($pattern) {
                 $q->where("driver", "LIKE", "%$pattern%")
+                    ->orWhere("hours_count", "LIKE", "%$pattern%")
+                    ->orWhere("overtime", "LIKE", "%$pattern%")
                     ->orWhere("note", "LIKE", "%$pattern%");
             })
             ->paginate(15);
@@ -55,5 +58,24 @@ class VehicleService
     {
         return VehicleWorkTime::where("vehicle_id", $vehicleId)
             ->sum("hours_count");
+    }
+
+    public static function vehicleFuelsCount($vehicleId)
+    {
+        return VehicleFuel::where("vehicle_id", $vehicleId)
+            ->sum("fuel_quantity");
+    }
+    public static function getAllVehicleFuels($vehilceId, $pattern)
+    {
+        $vehicleFuels = VehicleFuel::where("vehicle_id", $vehilceId)
+            ->where(function ($q) use ($pattern) {
+                $q->where("driver", "LIKE", "%$pattern%")
+                    ->orWhere("responsible", "LIKE", "%$pattern%")
+                    ->orWhere("fuel_quantity", "LIKE", "%$pattern%")
+                    ->orWhere("note", "LIKE", "%$pattern%");
+            })
+            ->paginate(15);
+
+        return $vehicleFuels;
     }
 }

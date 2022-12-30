@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVehicleFuelRequest;
 use App\Http\Requests\UpdateVehicleFuelRequest;
+use App\Models\Vehicle;
 use App\Models\VehicleFuel;
 
 class VehicleFuelController extends Controller
@@ -13,19 +14,22 @@ class VehicleFuelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+        return view("vehicles.fuels.index", compact("vehicle"));
     }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($vehicleId)
     {
-        //
+        $vehicle = Vehicle::find($vehicleId);
+        return view("vehicles.fuels.create", compact("vehicle"));
     }
 
     /**
@@ -34,9 +38,12 @@ class VehicleFuelController extends Controller
      * @param  \App\Http\Requests\StoreVehicleFuelRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreVehicleFuelRequest $request)
+    public function store(StoreVehicleFuelRequest $request, $vehicleId)
     {
-        //
+        $data = $request->all();
+        $data["vehicle_id"] = $vehicleId;
+        $vehicleFuel = VehicleFuel::create($data);
+        return back()->with(["success" => "تم إضافة الوقود بنجاح"]);
     }
 
     /**
@@ -56,9 +63,11 @@ class VehicleFuelController extends Controller
      * @param  \App\Models\VehicleFuel  $vehicleFuel
      * @return \Illuminate\Http\Response
      */
-    public function edit(VehicleFuel $vehicleFuel)
+    public function edit($vehicleId, $vehicleFuelId)
     {
-        //
+        $vehicle = Vehicle::find($vehicleId);
+        $vehicleFuel = VehicleFuel::find($vehicleFuelId);
+        return view("vehicles.fuels.edit", compact("vehicleFuel", "vehicle"));
     }
 
     /**
@@ -68,9 +77,13 @@ class VehicleFuelController extends Controller
      * @param  \App\Models\VehicleFuel  $vehicleFuel
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVehicleFuelRequest $request, VehicleFuel $vehicleFuel)
+    public function update(UpdateVehicleFuelRequest $request, $vehicleId, $vehicleFuelId)
     {
-        //
+        $data = $request->all();
+        $data["vehilce_id"] = $vehicleId;
+        $vehicleFuel = VehicleFuel::find($vehicleFuelId);
+        $vehicleFuel->update($data);
+        return back()->with(["success" => "تم تعديل الوقود بنجاح"]);
     }
 
     /**

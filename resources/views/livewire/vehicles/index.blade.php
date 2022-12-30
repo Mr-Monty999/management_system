@@ -35,18 +35,18 @@
                             الدوامات</a>
                         <a href="{{ route('vehicles.fuels.index', $vehicle->id) }}"
                             class="btn btn-success text-white mar-5">عرض جميع الوقود</a>
-                        <a href="{{ route('vehicles.maintenance.index', $vehicle->id) }}"
+                        <a href="{{ route('vehicles.maintenances.index', $vehicle->id) }}"
                             class="btn btn-success text-white mar-5">عرض جميع الصيانات</a>
-                        <a href="{{ route('vehicles.production-movement.index', $vehicle->id) }}"
+                        <a href="{{ route('vehicles.production-movements.index', $vehicle->id) }}"
                             class="btn btn-success text-white mar-5">عرض جميع حراك الأنتاج</a>
                         <a class="btn btn-success text-white mar-5"
                             href="{{ route('vehicles.worktimes.create', $vehicle->id) }}">إضافة
                             دوام</a>
                         <a href="{{ route('vehicles.fuels.create', $vehicle->id) }}"
                             class="btn btn-success text-white mar-5">إضافة وقود</a>
-                        <a href="{{ route('vehicles.maintenance.create', $vehicle->id) }}"
+                        <a href="{{ route('vehicles.maintenances.create', $vehicle->id) }}"
                             class="btn btn-success text-white mar-5">إضافة صيانة</a>
-                        <a href="{{ route('vehicles.production-movement.create', $vehicle->id) }}"
+                        <a href="{{ route('vehicles.production-movements.create', $vehicle->id) }}"
                             class="btn btn-success text-white mar-5">إضافة حراك إنتاج</a>
                         <a href="{{ route('vehicles.edit', $vehicle->id) }}"
                             class="btn btn-warning text-white mar-5">تعديل</a

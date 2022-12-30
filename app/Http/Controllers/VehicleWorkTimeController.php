@@ -14,11 +14,6 @@ class VehicleWorkTimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
-    {
-        $vehicle = Vehicle::find($id);
-        return view("vehicles.work-times.index", compact("vehicle"));
-    }
 
     /**
      * Show the form for creating a new resource.

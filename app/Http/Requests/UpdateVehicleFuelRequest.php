@@ -13,7 +13,7 @@ class UpdateVehicleFuelRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class UpdateVehicleFuelRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "responsible" => "required",
+            "driver" => "required",
+            "fuel_quantity" => "required|numeric",
+            "date" => "required|date",
+            "note" => "nullable"
+        ];
+    }
+    public function messages()
+    {
+        return [
+            "responsible.required" => "الرجاء إدخال إسم المسؤول !",
+            "driver.required" => "الرجاء إدخال إسم السائق !",
+            "fuel_quantity.numeric" => "الرجاء إدخال أرقام فقط في كمية الوقود !",
+            "fuel_quantity.required" => "الرجاء إدخال كمية الوقود !",
+            "date.required" => "الرجاء إختيار التاريخ"
         ];
     }
 }

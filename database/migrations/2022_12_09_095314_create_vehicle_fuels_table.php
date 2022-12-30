@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("driver");
             $table->integer("fuel_quantity");
+            $table->string("responsible");
             $table->timestamp("date");
             $table->text("note")->nullable();
             $table->unsignedBigInteger("vehicle_id");
