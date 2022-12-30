@@ -15,7 +15,7 @@
     <h2>عدد الوقود بالتر = {{ number_format($vehicleFuelsCount) }}</h2>
     <a href="{{ route('vehicles.index') }}" class="btn btn-dark text-white offset-4 mar-5">عرض جميع الآليات</a>
     <a href="{{ route('vehicles.fuels.create', $vehicle->id) }}" class="btn btn-dark text-white mar-5">إضافة
-        دوام</a>
+        وقود</a>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">بحث</label>
         <input type="text" class="form-control" id="exampleFormControlInput1" wire:model="pattern"
