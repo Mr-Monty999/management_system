@@ -24,6 +24,8 @@
                 <select class="form-select" name="type" aria-label="النوع">
                     <option value="in" @if ($stock->type == 'in') selected @endif>داخل</option>
                     <option value="out" @if ($stock->type == 'out') selected @endif>خارج</option>
+                    <option value="recovered" @if ($stock->type == 'recovered') selected @endif>راجع</option>
+
                 </select>
             </div>
             <div class="mb-3">

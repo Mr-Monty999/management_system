@@ -25,12 +25,14 @@ class Index extends Component
 
     public function render()
     {
-
-        $stocks = StockService::getAllStocks($this->pattern);
-        if ($this->type == "in")
-            $stocks = StockService::getAllInStocks($this->pattern);
-        elseif ($this->type == "out")
-            $stocks = StockService::getAllOutStocks($this->pattern);
+        if ($this->type == "all")
+            $stocks = StockService::getAllStocks($this->pattern);
+        else
+            $stocks = StockService::getAllStocksByType($this->pattern, $this->type);
+        // if ($this->type == "in")
+        //     $stocks = StockService::getAllInStocks($this->pattern);
+        // elseif ($this->type == "out")
+        //     $stocks = StockService::getAllOutStocks($this->pattern);
 
 
         return view('livewire.stock.index', ["stocks" => $stocks]);

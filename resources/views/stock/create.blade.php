@@ -23,6 +23,8 @@
                 <select class="form-select" name="type" aria-label="النوع">
                     <option value="in">داخل</option>
                     <option value="out">خارج</option>
+                    <option value="recovered">راجع</option>
+
                 </select>
             </div>
             <div class="mb-3">

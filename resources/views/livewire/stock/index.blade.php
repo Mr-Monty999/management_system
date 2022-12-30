@@ -16,6 +16,8 @@
             <option value="all">كل المخزون</option>
             <option value="in">داخل</option>
             <option value="out">خارج</option>
+            <option value="recovered">راجع</option>
+
         </select>
     </div>
     <div class="mb-3">
@@ -44,8 +46,10 @@
                     <td>
                         @if ($stock->type == 'in')
                             داخل
-                        @else
+                        @elseif($stock->type == 'out')
                             خارج
+                        @else
+                            راجع
                         @endif
                     </td>
                     <td>
