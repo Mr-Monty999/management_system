@@ -14,7 +14,7 @@
                 <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
             @endforeach
 
-            <h2>إضافة دوام ل{{ $vehicle->name }}</h2>
+            <h1>إضافة دوام للآلية {{ $vehicle->name }} رقم {{ $vehicle->number }}</h1>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">إسم السائق</label>
                 <input type="text" value="{{ old('driver') }}" name="driver" class="form-control"

@@ -14,6 +14,8 @@
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
             @endforeach
+            <h1>تعديل الآلية {{ $vehicle->name }} رقم {{ $vehicle->number }}</h1>
+
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">إسم الآلية</label>
                 <input type="text" value="{{ $vehicle->name }}" name="name" class="form-control"

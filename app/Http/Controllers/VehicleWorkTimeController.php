@@ -62,9 +62,11 @@ class VehicleWorkTimeController extends Controller
      * @param  \App\Models\VehicleWorkTime  $vehicleWorkTime
      * @return \Illuminate\Http\Response
      */
-    public function edit(VehicleWorkTime $vehicleWorkTime)
+    public function edit($vehicleId, $vehicleWorkTimeId)
     {
-        //
+        $vehicle = Vehicle::find($vehicleId);
+        $vehicleWorkTime = VehicleWorkTime::find($vehicleWorkTimeId);
+        return view("vehicles.work-times.edit", compact("vehicleWorkTime", "vehicle"));
     }
 
     /**
@@ -74,9 +76,13 @@ class VehicleWorkTimeController extends Controller
      * @param  \App\Models\VehicleWorkTime  $vehicleWorkTime
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVehicleWorkTimeRequest $request, VehicleWorkTime $vehicleWorkTime)
+    public function update(UpdateVehicleWorkTimeRequest $request, $vehicleId, $vehicleWorkTimeId)
     {
-        //
+        $data = $request->all();
+        $data["vehilce_id"] = $vehicleId;
+        $vehicleWorkTime = VehicleWorkTime::find($vehicleWorkTimeId);
+        $vehicleWorkTime->update($data);
+        return back()->with(["success" => "تم تعديل الدوام بنجاح"]);
     }
 
     /**
