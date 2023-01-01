@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Services\CustodyService;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreCustodySpendRequest extends FormRequest
@@ -11,8 +12,10 @@ class StoreCustodySpendRequest extends FormRequest
      *
      * @return bool
      */
+    public $maxMoneyAmount;
     public function authorize()
     {
+        $this->maxMoneyAmount = CustodyService::getAllCustodiesSpendsAndBorrowsSum($this->route("custody"));
         return true;
     }
 
@@ -26,7 +29,7 @@ class StoreCustodySpendRequest extends FormRequest
         return [
             "responsible" => "required",
             "type" => "required",
-            "money_amount" => "required|numeric",
+            "money_amount" => "required|numeric|min:1|max:" . $this->maxMoneyAmount,
             "date" => "required|date",
         ];
     }
@@ -37,6 +40,9 @@ class StoreCustodySpendRequest extends FormRequest
             "date.required" => "الرجاء تحديد التاريخ !",
             "type.required" => "الرجاء إختيار نوع المنصرف !",
             "money_amount.required" => "الرجاء إدخال المبلغ",
+            "money_amount.max" => "لقد تجاوزت مبلغ العهدة !",
+            "money_amount.min" => "0 يجب أن لا يكون المبلغ أقل من"
+
 
         ];
     }

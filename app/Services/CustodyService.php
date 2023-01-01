@@ -39,7 +39,10 @@ class CustodyService
         return CustodySpend::where("type", $type)
             ->sum("money_amount");
     }
-
+    public static function getAllCustodiesSpendsAndBorrowsSum($custodyId)
+    {
+        return Custody::find($custodyId)->money_amount - (CustodySpend::where("custody_id", $custodyId)->sum("money_amount") + CustodyBorrow::where("custody_id", $custodyId)->sum("money_amount"));
+    }
 
     public static function getAllCustodySpendsByType($pattern = "", $type)
     {

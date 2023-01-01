@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('custody_borrows', function (Blueprint $table) {
             $table->id();
+            $table->string("borrower");
             $table->double("money_amount");
             $table->timestamp("date");
             $table->text("note")->nullable();

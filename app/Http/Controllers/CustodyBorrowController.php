@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCustodyBorrowRequest;
 use App\Http\Requests\UpdateCustodyBorrowRequest;
+use App\Models\Custody;
 use App\Models\CustodyBorrow;
 
 class CustodyBorrowController extends Controller
@@ -13,9 +14,10 @@ class CustodyBorrowController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $custody = Custody::find($id);
+        return view("custodies.borrows.index", compact("custody"));
     }
 
     /**
@@ -23,9 +25,10 @@ class CustodyBorrowController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($custodyId)
     {
-        //
+        $custody = Custody::find($custodyId);
+        return view("custodies.borrows.create", compact("custody"));
     }
 
     /**
@@ -34,9 +37,12 @@ class CustodyBorrowController extends Controller
      * @param  \App\Http\Requests\StoreCustodyBorrowRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCustodyBorrowRequest $request)
+    public function store(StoreCustodyBorrowRequest $request, $custodyId)
     {
-        //
+        $data = $request->all();
+        $data["custody_id"] = $custodyId;
+        $custodyBorrow = CustodyBorrow::create($data);
+        return back()->with(["success" => "تم إضافة السلفية بنجاح"]);
     }
 
     /**
@@ -56,9 +62,11 @@ class CustodyBorrowController extends Controller
      * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Http\Response
      */
-    public function edit(CustodyBorrow $custodyBorrow)
+    public function edit($custodyId,  $custodyBorrowId)
     {
-        //
+        $custody = Custody::find($custodyId);
+        $custodyBorrow = CustodyBorrow::find($custodyBorrowId);
+        return view("custodies.borrows.edit", compact("custodyBorrow", "custody"));
     }
 
     /**
@@ -68,9 +76,14 @@ class CustodyBorrowController extends Controller
      * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCustodyBorrowRequest $request, CustodyBorrow $custodyBorrow)
+    public function update(UpdateCustodyBorrowRequest $request, $custodyId, $custodyBorrowId)
     {
-        //
+
+        $data = $request->all();
+        $data["custody_id"] = $custodyId;
+        $custodyBorrow = CustodyBorrow::find($custodyBorrowId);
+        $custodyBorrow->update($data);
+        return back()->with(["success" => "تم تعديل السلفية بنجاح"]);
     }
 
     /**

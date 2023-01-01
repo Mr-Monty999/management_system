@@ -26,7 +26,7 @@ class UpdateCustodySpendRequest extends FormRequest
         return [
             "responsible" => "required",
             "type" => "required",
-            "money_amount" => "required|numeric",
+            "money_amount" => "required|numeric|min:1|max:" . $this->maxMoneyAmount,
             "date" => "required|date",
         ];
     }
@@ -37,6 +37,9 @@ class UpdateCustodySpendRequest extends FormRequest
             "date.required" => "الرجاء تحديد التاريخ !",
             "type.required" => "الرجاء إختيار نوع المنصرف !",
             "money_amount.required" => "الرجاء إدخال المبلغ",
+            "money_amount.max" => "لقد تجاوزت مبلغ العهدة !",
+            "money_amount.min" => "0 يجب أن لا يكون المبلغ أقل من"
+
 
         ];
     }
