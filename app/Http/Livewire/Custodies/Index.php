@@ -16,7 +16,10 @@ class Index extends Component
     public $pattern;
     public  $type = "all";
     public $custodySpendSum;
-    public $custodyBorrowSum;
+    public $custodyAllBorrowsSum;
+    public $custodySubsistenseSpendsSum;
+    public $custodyOtherSpendsSum;
+    public $custodyAllSpendsSum;
 
     public function deleteCustody($id)
     {
@@ -30,8 +33,13 @@ class Index extends Component
 
         $custodies = CustodyService::getAllCustodies($this->pattern);
 
-        // dd($custodies->items());
-
+        $this->custodySubsistenseSpendsSum = CustodyService::getAllCustodiesSpendsSumByType("subsistence");
+        $this->custodyOtherSpendsSum = CustodyService::getAllCustodiesSpendsSumByType("others");
+        $this->custodyAllBorrowsSum = CustodyService::getAllCustodiesBorrowsSum();
+        $this->custodyAllSpendsAndBorrowsSum
+            = $this->custodySubsistenseSpendsSum
+            + $this->custodyOtherSpendsSum
+            + $this->custodyAllBorrowsSum;
 
         return view('livewire.custodies.index', ["custodies" => $custodies]);
     }

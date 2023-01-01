@@ -11,9 +11,6 @@
         <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
     @endforeach
     <h1>منصرفات العهدة رقم {{ $custody->id }}</h1>
-    <h2>مجموع منصرفات الميز = {{ number_format($custodySubsistenseSpendsSum) }}</h2>
-    <h2>مجموع المنصرفات الأخرى = {{ number_format($custodyOtherSpendsSum) }}</h2>
-    <h2>مجموع جميع المنصرفات = {{ number_format($custodyAllSpendsSum) }}</h2>
     <a href="{{ route('custodies.index') }}" class="btn btn-dark text-white offset-4 mar-5">عرض جميع العهد</a>
     <a href="{{ route('custodies.spends.create', $custody->id) }}" class="btn btn-dark text-white mar-5">إضافة
         منصرف</a>
@@ -34,6 +31,7 @@
     <table class="table">
         <thead class="table-dark">
             <tr>
+                <th>الرقم</th>
                 <th>نوع المنصرف</th>
                 <th>المسؤول</th>
                 <th>المبلغ</th>
@@ -46,6 +44,7 @@
         <tbody>
             @foreach ($custodySpends as $custodySpend)
                 <tr>
+                    <td>{{ $custodySpend->id }}</td>
                     <td>
                         @if ($custodySpend->type == 'subsistence')
                             ميز

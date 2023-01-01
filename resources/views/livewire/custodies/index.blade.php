@@ -10,6 +10,10 @@
     @foreach ($errors->all() as $error)
         <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
     @endforeach
+    <h2>مجموع جميع السلفيات لكل العهد= {{ number_format($custodyAllBorrowsSum) }}</h2>
+    <h2> مجموع منصرفات الميز لكل العهد= {{ number_format($custodySubsistenseSpendsSum) }}</h2>
+    <h2>مجموع المنصرفات الأخرى لكل العهد= {{ number_format($custodyOtherSpendsSum) }}</h2>
+    <h2>مجموع جميع (السلفيات + المنصرفات) لكل العهد= {{ number_format($custodyAllSpendsAndBorrowsSum) }}</h2>
     {{-- <div class="mb-3">
         <label for="typeSelect" class="form-label">نوع المخزون</label>
         <select class="form-control" wire:model="type" id="typeSelect">
@@ -28,6 +32,7 @@
     <table class="table">
         <thead class="table-dark">
             <tr>
+                <th>الرقم</th>
                 <th>المبلغ</th>
                 <th>المرسل</th>
                 <th>المستلم</th>
@@ -35,6 +40,7 @@
                 <th>مجموع السلفيات</th>
                 <th>مجموع منصرفات الميز</th>
                 <th>مجموع المنصرفات الأخرى</th>
+                <th>المتبقي</th>
                 <th>ملاحظة</th>
                 <th>الأحداث</th>
             </tr>
@@ -43,7 +49,9 @@
         <tbody>
             @foreach ($custodies as $custody)
                 <tr>
-                    <td>{{ $custody->money_amount }}</td>
+                    <td>{{ $custody->id }}</td>
+
+                    <td>{{ number_format($custody->money_amount) }}</td>
                     <td>
                         {{ $custody->sender }}
                     </td>
@@ -54,20 +62,22 @@
                         @endif
                     </td>
                     @if ($custody->borrows_sum_money_amount != null)
-                        {{ $custody->borrows_sum_money_amount }}
+                        {{ number_format($custody->borrows_sum_money_amount) }}
                     @else
                         <td>0</td>
                     @endif
                     @if ($custody->subsistence_spends_sum_money_amount != null)
-                        <td>{{ $custody->subsistence_spends_sum_money_amount }}</td>
+                        <td>{{ number_format($custody->subsistence_spends_sum_money_amount) }}</td>
                     @else
                         <td>0</td>
                     @endif
                     @if ($custody->other_spends_sum_money_amount != null)
-                        <td>{{ $custody->other_spends_sum_money_amount }}</td>
+                        <td>{{ number_format($custody->other_spends_sum_money_amount) }}</td>
                     @else
                         <td>0</td>
                     @endif
+                    <td>{{ number_format($custody->money_amount - ($custody->borrows_sum_money_amount + $custody->subsistence_spends_sum_money_amount + $custody->other_spends_sum_money_amount)) }}
+                    </td>
                     <td>{{ $custody->note }}</td>
                     <td>
                         <a class="btn btn-success text-white mar-5"

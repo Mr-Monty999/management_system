@@ -30,22 +30,16 @@ class CustodyService
 
         return $custodies;
     }
-    public static function getAllCustodyBorrowsSum($custodyId)
+    public static function getAllCustodiesBorrowsSum()
     {
-        return CustodyBorrow::where("custody_id", $custodyId)
+        return CustodyBorrow::sum("money_amount");
+    }
+    public static function getAllCustodiesSpendsSumByType($type)
+    {
+        return CustodySpend::where("type", $type)
             ->sum("money_amount");
     }
-    public static function getAllCustodySpendsSumByType($custodyId, $type)
-    {
-        return CustodySpend::where("custody_id", $custodyId)
-            ->where("type", $type)
-            ->sum("money_amount");
-    }
-    public static function getAllCustodySpendsSum($custodyId)
-    {
-        return CustodySpend::where("custody_id", $custodyId)
-            ->sum("money_amount");
-    }
+
 
     public static function getAllCustodySpendsByType($pattern = "", $type)
     {
