@@ -53,9 +53,21 @@
                             {{ date('Y-m-d', strtotime($custody->date)) }}
                         @endif
                     </td>
-                    <td>{{ $custody->borrows_sum_money_amount }}</td>
-                    <td>{{ $custody->spends_sum_money_amount }}</td>
-                    <td>{{ $custody->borrows_sum_money_amount }}</td>
+                    @if ($custody->borrows_sum_money_amount != null)
+                        {{ $custody->borrows_sum_money_amount }}
+                    @else
+                        <td>0</td>
+                    @endif
+                    @if ($custody->subsistence_spends_sum_money_amount != null)
+                        <td>{{ $custody->subsistence_spends_sum_money_amount }}</td>
+                    @else
+                        <td>0</td>
+                    @endif
+                    @if ($custody->other_spends_sum_money_amount != null)
+                        <td>{{ $custody->other_spends_sum_money_amount }}</td>
+                    @else
+                        <td>0</td>
+                    @endif
                     <td>{{ $custody->note }}</td>
                     <td>
                         <a class="btn btn-success text-white mar-5"

@@ -80,7 +80,7 @@ class VehicleFuelController extends Controller
     public function update(UpdateVehicleFuelRequest $request, $vehicleId, $vehicleFuelId)
     {
         $data = $request->all();
-        $data["vehilce_id"] = $vehicleId;
+        // $data["vehicle_id"] = $vehicleId;
         $vehicleFuel = VehicleFuel::find($vehicleFuelId);
         $vehicleFuel->update($data);
         return back()->with(["success" => "تم تعديل الوقود بنجاح"]);

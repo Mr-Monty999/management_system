@@ -30,7 +30,7 @@ class Index extends Component
 
         $custodies = CustodyService::getAllCustodies($this->pattern);
 
-        // dd($custodies);
+        // dd($custodies->items());
 
 
         return view('livewire.custodies.index', ["custodies" => $custodies]);

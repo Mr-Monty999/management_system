@@ -13,7 +13,7 @@ class StoreCustodySpendRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class StoreCustodySpendRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "responsible" => "required",
+            "type" => "required",
+            "money_amount" => "required|numeric",
+            "date" => "required|date",
+        ];
+    }
+    public function messages()
+    {
+        return [
+            "responsible.required" => "الرجاء كتابة إسم المسؤول !",
+            "date.required" => "الرجاء تحديد التاريخ !",
+            "type.required" => "الرجاء إختيار نوع المنصرف !",
+            "money_amount.required" => "الرجاء إدخال المبلغ",
+
         ];
     }
 }

@@ -17,8 +17,12 @@ class Custody extends Model
         return $this->hasMany(CustodyBorrow::class);
     }
 
-    public function spends()
+    public function subsistenceSpends()
     {
-        return $this->hasMany(CustodySpend::class);
+        return $this->hasMany(CustodySpend::class)->where("type", "subsistence");
+    }
+    public function otherSpends()
+    {
+        return $this->hasMany(CustodySpend::class)->where("type", "others");
     }
 }
