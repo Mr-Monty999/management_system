@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="row mar-50">
-        <livewire:vehicles.maintenances.index :vehicle="$vehicle" />
+        <livewire:vehicles.production-movement.index :vehicle="$vehicle" />
     </div>
 @endsection

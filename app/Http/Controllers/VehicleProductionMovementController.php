@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVehicleProductionMovementRequest;
 use App\Http\Requests\UpdateVehicleProductionMovementRequest;
+use App\Models\Vehicle;
 use App\Models\VehicleProductionMovement;
 use Illuminate\Support\Facades\URL as FacadesURL;
 use URL;
@@ -15,9 +16,10 @@ class VehicleProductionMovementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($vehicleId)
     {
-        //
+        $vehicle = Vehicle::find($vehicleId);
+        return view("vehicles.production-movements.index", compact("vehicle"));
     }
 
     /**
@@ -25,9 +27,10 @@ class VehicleProductionMovementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($vehicleId)
     {
-        //
+        $vehicle = Vehicle::find($vehicleId);
+        return view("vehicles.production-movements.create", compact("vehicle"));
     }
 
     /**
@@ -36,9 +39,12 @@ class VehicleProductionMovementController extends Controller
      * @param  \App\Http\Requests\StoreVehicleProductionMovementRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreVehicleProductionMovementRequest $request)
+    public function store(StoreVehicleProductionMovementRequest $request, $vehicleId)
     {
-        //
+        $data = $request->all();
+        $data["vehicle_id"] = $vehicleId;
+        $vehicleProductionMovement = VehicleProductionMovement::create($data);
+        return back()->with(["success" => "تم إضافة حراك الإنتاج بنجاح"]);
     }
 
     /**
@@ -49,7 +55,6 @@ class VehicleProductionMovementController extends Controller
      */
     public function show(VehicleProductionMovement $vehicleProductionMovement)
     {
-        //
     }
 
     /**
@@ -58,9 +63,11 @@ class VehicleProductionMovementController extends Controller
      * @param  \App\Models\VehicleProductionMovement  $vehicleProductionMovement
      * @return \Illuminate\Http\Response
      */
-    public function edit(VehicleProductionMovement $vehicleProductionMovement)
+    public function edit($vehicleId, $vehicleProductionMovementId)
     {
-        //
+        $vehicle = Vehicle::find($vehicleId);
+        $vehicleProductionMovement = VehicleProductionMovement::find($vehicleProductionMovementId);
+        return view("vehicles.production-movements.edit", compact("vehicleProductionMovement", "vehicle"));
     }
 
     /**
@@ -70,9 +77,13 @@ class VehicleProductionMovementController extends Controller
      * @param  \App\Models\VehicleProductionMovement  $vehicleProductionMovement
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVehicleProductionMovementRequest $request, VehicleProductionMovement $vehicleProductionMovement)
+    public function update(UpdateVehicleProductionMovementRequest $request, $vehicleId, $vehicleProductionMovementId)
     {
-        //
+        $data = $request->all();
+        $data["vehilce_id"] = $vehicleId;
+        $vehicleProductionMovement = VehicleProductionMovement::find($vehicleProductionMovementId);
+        $vehicleProductionMovement->update($data);
+        return back()->with(["success" => "تم تعديل حراك الإنتاج بنجاح"]);
     }
 
     /**

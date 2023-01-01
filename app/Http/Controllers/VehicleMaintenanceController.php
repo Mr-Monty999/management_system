@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVehicleMaintenanceRequest;
 use App\Http\Requests\UpdateVehicleMaintenanceRequest;
+use App\Models\Vehicle;
 use App\Models\VehicleMaintenance;
 
 class VehicleMaintenanceController extends Controller
@@ -13,9 +14,10 @@ class VehicleMaintenanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($vehicleId)
     {
-        //
+        $vehicle = Vehicle::find($vehicleId);
+        return view("vehicles.maintenances.index", compact("vehicle"));
     }
 
     /**
@@ -23,9 +25,11 @@ class VehicleMaintenanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($vehicleId)
     {
-        //
+
+        $vehicle = Vehicle::find($vehicleId);
+        return view("vehicles.maintenances.create", compact("vehicle"));
     }
 
     /**
@@ -34,9 +38,12 @@ class VehicleMaintenanceController extends Controller
      * @param  \App\Http\Requests\StoreVehicleMaintenanceRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreVehicleMaintenanceRequest $request)
+    public function store(StoreVehicleMaintenanceRequest $request, $vehicleId)
     {
-        //
+        $data = $request->all();
+        $data["vehicle_id"] = $vehicleId;
+        $vehicleMaintenance = VehicleMaintenance::create($data);
+        return back()->with(["success" => "تم إضافة الصيانة بنجاح"]);
     }
 
     /**
@@ -56,9 +63,11 @@ class VehicleMaintenanceController extends Controller
      * @param  \App\Models\VehicleMaintenance  $vehicleMaintenance
      * @return \Illuminate\Http\Response
      */
-    public function edit(VehicleMaintenance $vehicleMaintenance)
+    public function edit($vehicleId, $vehicleMaintenanceId)
     {
-        //
+        $vehicle = Vehicle::find($vehicleId);
+        $vehicleMaintenance = VehicleMaintenance::find($vehicleMaintenanceId);
+        return view("vehicles.maintenances.edit", compact("vehicleMaintenance", "vehicle"));
     }
 
     /**
@@ -68,9 +77,13 @@ class VehicleMaintenanceController extends Controller
      * @param  \App\Models\VehicleMaintenance  $vehicleMaintenance
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVehicleMaintenanceRequest $request, VehicleMaintenance $vehicleMaintenance)
+    public function update(UpdateVehicleMaintenanceRequest $request, $vehicleId, $vehicleMaintenanceId)
     {
-        //
+        $data = $request->all();
+        $data["vehilce_id"] = $vehicleId;
+        $vehicleMaintenance = VehicleMaintenance::find($vehicleMaintenanceId);
+        $vehicleMaintenance->update($data);
+        return back()->with(["success" => "تم تعديل الصيانة بنجاح"]);
     }
 
     /**

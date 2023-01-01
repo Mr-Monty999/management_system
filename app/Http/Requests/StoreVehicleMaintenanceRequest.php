@@ -13,7 +13,7 @@ class StoreVehicleMaintenanceRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class StoreVehicleMaintenanceRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "responsible" => "required",
+            "driver" => "required",
+            "money_amount" => "required|numeric",
+            "date" => "required|date",
+            "note" => "nullable"
+        ];
+    }
+    public function messages()
+    {
+        return [
+            "responsible.required" => "الرجاء إدخال إسم المسؤول !",
+            "driver.required" => "الرجاء إدخال إسم السائق !",
+            "money_amount.numeric" => "الرجاء إدخال أرقام فقط في المبلغ !",
+            "money_amount.required" => "الرجاء إدخال المبلغ !",
+            "date.required" => "الرجاء إختيار التاريخ"
         ];
     }
 }

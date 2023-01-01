@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('vehicle_maintenances', function (Blueprint $table) {
             $table->id();
             $table->string("responsible");
+            $table->string("driver");
             $table->double("money_amount");
             $table->timestamp("date");
             $table->text("note")->nullable();

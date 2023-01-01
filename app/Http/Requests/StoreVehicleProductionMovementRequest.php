@@ -13,7 +13,7 @@ class StoreVehicleProductionMovementRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class StoreVehicleProductionMovementRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "responsible" => "nullable",
+            "driver" => "required",
+            "quantity" => "nullable",
+            "type" => "required",
+            "date" => "required|date",
+            "note" => "nullable"
+        ];
+    }
+    public function messages()
+    {
+        return [
+            // "responsible.required" => "الرجاء إدخال إسم المسؤول !",
+            "driver.required" => "الرجاء إدخال إسم السائق !",
+            "type.required" => "الرجاء إدخال نوع الإنتاج !",
+            "date.required" => "الرجاء إختيار التاريخ"
         ];
     }
 }

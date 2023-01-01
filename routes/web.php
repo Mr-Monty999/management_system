@@ -23,5 +23,5 @@ Route::resource("stocks", "StockController");
 Route::resource("vehicles", "VehicleController");
 Route::resource("vehicles.worktimes", "VehicleWorkTimeController");
 Route::resource("vehicles.fuels", "VehicleFuelController");
-Route::resource("vehicles.maintenances", "VehicleProductionMovementController");
+Route::resource("vehicles.maintenances", "VehicleMaintenanceController");
 Route::resource("vehicles.production-movements", "VehicleProductionMovementController");

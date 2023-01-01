@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row mar-50">
-        <form action="{{ route('vehicles.maintenances.store', $vehicle->id) }}" method="post">
+        <form action="{{ route('vehicles.production-movements.store', $vehicle->id) }}" method="post">
             @csrf
             @if (Session::has('success'))
                 <div class="alert alert-success text-center col-7 offset-2">{{ session('success') }}</div>
@@ -14,7 +14,7 @@
                 <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
             @endforeach
 
-            <h1>إضافة صيانة للآلية {{ $vehicle->name }} رقم {{ $vehicle->number }}</h1>
+            <h1>إضافة حراك إنتاج للآلية {{ $vehicle->name }} رقم {{ $vehicle->number }}</h1>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">إسم السائق</label>
                 <input type="text" value="{{ old('driver') }}" name="driver" class="form-control"
@@ -26,9 +26,14 @@
                     id="exampleFormControlInput1" placeholder="إسم المسؤول">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">المبلغ</label>
-                <input type="number" value="{{ old('money_amount') }}" name="money_amount" class="form-control"
-                    id="exampleFormControlInput1" placeholder="المبلغ">
+                <label for="exampleFormControlInput1" class="form-label">نوع الإنتاج</label>
+                <input type="text" value="{{ old('type') }}" name="type" class="form-control"
+                    id="exampleFormControlInput1" placeholder="نوع الإنتاج">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">كمية الإنتاج</label>
+                <input type="number" value="{{ old('quantity') }}" name="quantity" class="form-control"
+                    id="exampleFormControlInput1" placeholder="كمية الإنتاج">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput3" class="form-label">التاريخ</label>
@@ -42,8 +47,9 @@
                     rows="10">{{ old('note') }}</textarea>
             </div>
             <button type="submit" class="btn btn-success text-white offset-4">إضافة</button>
-            <a href="{{ route('vehicles.maintenances.index', $vehicle->id) }}" class="btn btn-dark text-white">عرض جميع
-                الصيانات</a>
+            <a href="{{ route('vehicles.production-movements.index', $vehicle->id) }}" class="btn btn-dark text-white">عرض
+                جميع
+                حركة الإنتاج</a>
             <a href="{{ route('vehicles.index') }}" class="btn btn-dark text-white">عرض جميع الآليات</a>
 
 

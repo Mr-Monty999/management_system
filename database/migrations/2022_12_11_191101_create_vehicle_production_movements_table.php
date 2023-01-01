@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('vehicle_production_movements', function (Blueprint $table) {
             $table->id();
+            $table->string("responsible")->nullable();
             $table->string("driver");
             $table->string("type");
+            $table->double("quantity")->nullable();
             $table->timestamp("date");
             $table->text("note")->nullable();
             $table->unsignedBigInteger("vehicle_id");

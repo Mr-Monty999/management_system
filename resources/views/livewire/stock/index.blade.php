@@ -23,7 +23,7 @@
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">بحث</label>
         <input type="text" class="form-control" id="exampleFormControlInput1" wire:model="pattern"
-            placeholder="بحث بالإسم,المستلم,المرسل,العدد">
+            placeholder="بحث بالإسم,المستلم,المرسل,العدد,ملاحظة">
     </div>
     <table class="table">
         <thead class="table-dark">

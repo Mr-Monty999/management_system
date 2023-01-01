@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Models\Vehicle;
 use App\Models\VehicleFuel;
+use App\Models\VehicleMaintenance;
+use App\Models\VehicleProductionMovement;
 use App\Models\VehicleWorkTime;
 
 /**
@@ -77,5 +79,42 @@ class VehicleService
             ->paginate(15);
 
         return $vehicleFuels;
+    }
+    public static function vehicleMaintenancesCount($vehicleId)
+    {
+        return VehicleMaintenance::where("vehicle_id", $vehicleId)
+            ->sum("money_amount");
+    }
+    public static function getAllVehicleMaintenances($vehilceId, $pattern)
+    {
+        $vehicleMaintenances = VehicleMaintenance::where("vehicle_id", $vehilceId)
+            ->where(function ($q) use ($pattern) {
+                $q->where("driver", "LIKE", "%$pattern%")
+                    ->orWhere("responsible", "LIKE", "%$pattern%")
+                    ->orWhere("money_amount", "LIKE", "%$pattern%")
+                    ->orWhere("note", "LIKE", "%$pattern%");
+            })
+            ->paginate(15);
+
+        return $vehicleMaintenances;
+    }
+    public static function vehicleProductionMovementsCount($vehicleId)
+    {
+        return VehicleProductionMovement::where("vehicle_id", $vehicleId)
+            ->sum("quantity");
+    }
+    public static function getAllVehicleProductionMovements($vehilceId, $pattern)
+    {
+        $vehicleProductionMovements = VehicleProductionMovement::where("vehicle_id", $vehilceId)
+            ->where(function ($q) use ($pattern) {
+                $q->where("driver", "LIKE", "%$pattern%")
+                    ->orWhere("responsible", "LIKE", "%$pattern%")
+                    ->orWhere("type", "LIKE", "%$pattern%")
+                    ->orWhere("quantity", "LIKE", "%$pattern%")
+                    ->orWhere("note", "LIKE", "%$pattern%");
+            })
+            ->paginate(15);
+
+        return $vehicleProductionMovements;
     }
 }
