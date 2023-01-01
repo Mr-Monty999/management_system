@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Custodys\Spends;
+namespace App\Http\Livewire\Custodies\Spends;
 
 use Livewire\Component;
 

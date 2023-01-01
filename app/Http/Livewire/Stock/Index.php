@@ -21,6 +21,7 @@ class Index extends Component
     {
         $stock = Stock::find($id);
         $stock->delete();
+        session()->flash("success", "تم حذف المخزون بنجاح");
     }
 
     public function render()

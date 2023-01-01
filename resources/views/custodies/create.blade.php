@@ -17,7 +17,7 @@
 
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">المبلغ</label>
-                <input type="text" value="{{ old('mone_amount') }}" name="mone_amount" class="form-control"
+                <input type="number" value="{{ old('money_amount') }}" name="money_amount" class="form-control"
                     id="exampleFormControlInput1" placeholder="المبلغ">
             </div>
 
@@ -44,7 +44,7 @@
             </div>
 
             <button type="submit" class="btn btn-success text-white offset-4">إضافة</button>
-            <a href="{{ route('custodies.index') }}" class="btn btn-dark text-white">عرض جميع التصفيات</a>
+            <a href="{{ route('custodies.index') }}" class="btn btn-dark text-white">عرض جميع العهد</a>
 
 
         </form>

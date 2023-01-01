@@ -182,14 +182,14 @@
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
-                    </svg> التصفيات</a>
+                    </svg> العهد</a>
                 <ul class="nav-group-items">
                     {{-- <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-free.html"> عهدة جديدة<span
                                 class="badge badge-sm bg-success ms-auto">Free</span></a></li> --}}
                     <li class="nav-item"><a class="nav-link" href="{{ route('custodies.create') }}">عهدة
                             جديدة</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('custodies.index') }}">عرض جميع
-                            التصفيات</a></li>
+                            العهد</a></li>
 
                 </ul>
             </li>

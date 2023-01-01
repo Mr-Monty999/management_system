@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Custodys\Borrows;
+namespace App\Http\Livewire\Custodies\Borrows;
 
 use Livewire\Component;
 

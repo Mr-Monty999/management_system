@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="row mar-50">
-        <livewire:stock.index />
+        <livewire:custodies.index />
     </div>
 @endsection

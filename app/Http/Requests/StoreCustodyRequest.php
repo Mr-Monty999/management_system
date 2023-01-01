@@ -13,7 +13,7 @@ class StoreCustodyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,24 @@ class StoreCustodyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "money_amount" => "required|numeric",
+            "sender" => "required",
+            "receiver" => "required",
+            "date" => "required|date",
+
+        ];
+    }
+    public function messages()
+    {
+        return [
+            "money_amount.required" => "الرجاء كتابة المبلغ !",
+            "sender.required" => "الرجاء كتابة إسم المرسل !",
+            "receiver.required" => "الرجاء كتابة إسم المستلم !",
+            "date.required" => "الرجاء تحديد التاريخ !",
+
+
+
+
         ];
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row mar-50">
-        <form action="{{ route('stocks.update', $stock->id) }}" method="post">
+        <form action="{{ route('custodies.update', $custody->id) }}" method="post">
             @csrf
             @method('put')
             @if (Session::has('success'))
@@ -14,50 +14,38 @@
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
             @endforeach
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">إسم المخزون</label>
-                <input type="text" value="{{ $stock->name }}" name="name" class="form-control"
-                    id="exampleFormControlInput1" placeholder="إسم المخزون">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput2" class="form-label">النوع</label>
-                <select class="form-select" name="type" aria-label="النوع">
-                    <option value="in" @if ($stock->type == 'in') selected @endif>داخل</option>
-                    <option value="out" @if ($stock->type == 'out') selected @endif>خارج</option>
-                    <option value="recovered" @if ($stock->type == 'recovered') selected @endif>راجع</option>
+            <h1>إضافة عهدة جديدة</h1>
 
-                </select>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">المبلغ</label>
+                <input type="number" value="{{ $custody->money_amount }}" name="money_amount" class="form-control"
+                    id="exampleFormControlInput1" placeholder="المبلغ">
             </div>
+
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">إسم المرسل</label>
-                <input type="text" value="{{ $stock->sender }}" name="sender" class="form-control"
+                <input type="text" value="{{ $custody->sender }}" name="sender" class="form-control"
                     id="exampleFormControlInput1" placeholder="إسم المرسل">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">إسم المستلم</label>
-                <input type="text" value="{{ $stock->receiver }}" name="receiver" class="form-control"
+                <input type="text" value="{{ $custody->receiver }}" name="receiver" class="form-control"
                     id="exampleFormControlInput1" placeholder="إسم المستلم">
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleFormControlInput5" class="form-label">العدد</label>
-                <input type="text" value="{{ $stock->count }}" name="count" class="form-control"
-                    id="exampleFormControlInput1" placeholder="العدد">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput3" class="form-label">التاريخ</label>
-                <input type="date" value="{{ date('Y-m-d', strtotime($stock->date)) }}" name="date"
+                <input type="date" value="{{ date('Y-m-d', strtotime($custody->date)) }}" name="date"
                     class="form-control" id="exampleFormControlInput1" placeholder="التاريخ">
             </div>
 
             <div class="mb-3">
                 <label for="exampleFormControlInput5" class="form-label">ملاحظة</label>
-                <textarea type="note" value="{{ $stock->note }}" name="note" class="form-control" id="exampleFormControlInput1"
-                    id="" cols="30" rows="10"></textarea>
+                <textarea type="note" name="note" class="form-control" id="exampleFormControlInput1" id="" cols="30"
+                    rows="10">{{ $custody->note }}</textarea>
             </div>
 
             <button type="submit" class="btn btn-success text-white offset-4">تعديل</button>
-            <a href="{{ route('stocks.index') }}" class="btn btn-dark text-white">عرض جميع المخزون</a>
+            <a href="{{ route('custodies.index') }}" class="btn btn-dark text-white">عرض جميع العهد</a>
 
 
         </form>

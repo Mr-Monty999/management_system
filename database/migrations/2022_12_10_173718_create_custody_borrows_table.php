@@ -19,12 +19,12 @@ return new class extends Migration
             $table->timestamp("date");
             $table->text("note")->nullable();
             $table->unsignedBigInteger("custody_id");
-            $table->unsignedBigInteger("person_id");
+            // $table->unsignedBigInteger("person_id");
             $table->softDeletes();
             $table->timestamps();
 
             $table->foreign("custody_id")->references("id")->on("custodies")->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreign("person_id")->references("id")->on("people")->cascadeOnDelete()->cascadeOnUpdate();
+            // $table->foreign("person_id")->references("id")->on("people")->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
