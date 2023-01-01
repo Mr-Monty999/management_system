@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\LiquidationBorrow;
+use App\Models\CustodyBorrow;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class LiquidationBorrowPolicy
+class CustodyBorrowPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class LiquidationBorrowPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\LiquidationBorrow  $liquidationBorrow
+     * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, LiquidationBorrow $liquidationBorrow)
+    public function view(User $user, CustodyBorrow $custodyBorrow)
     {
         //
     }
@@ -48,10 +48,10 @@ class LiquidationBorrowPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\LiquidationBorrow  $liquidationBorrow
+     * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, LiquidationBorrow $liquidationBorrow)
+    public function update(User $user, CustodyBorrow $custodyBorrow)
     {
         //
     }
@@ -60,10 +60,10 @@ class LiquidationBorrowPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\LiquidationBorrow  $liquidationBorrow
+     * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, LiquidationBorrow $liquidationBorrow)
+    public function delete(User $user, CustodyBorrow $custodyBorrow)
     {
         //
     }
@@ -72,10 +72,10 @@ class LiquidationBorrowPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\LiquidationBorrow  $liquidationBorrow
+     * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, LiquidationBorrow $liquidationBorrow)
+    public function restore(User $user, CustodyBorrow $custodyBorrow)
     {
         //
     }
@@ -84,10 +84,10 @@ class LiquidationBorrowPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\LiquidationBorrow  $liquidationBorrow
+     * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, LiquidationBorrow $liquidationBorrow)
+    public function forceDelete(User $user, CustodyBorrow $custodyBorrow)
     {
         //
     }

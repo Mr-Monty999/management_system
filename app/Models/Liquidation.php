@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Liquidation extends Model
+class Custody extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -14,11 +14,11 @@ class Liquidation extends Model
 
     public function borrows()
     {
-        return $this->hasMany(LiquidationBorrow::class);
+        return $this->hasMany(CustodyBorrow::class);
     }
 
     public function spends()
     {
-        return $this->hasMany(LiquidationSpend::class);
+        return $this->hasMany(CustodySpend::class);
     }
 }

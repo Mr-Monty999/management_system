@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Liquidation;
+use App\Models\Custody;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class LiquidationPolicy
+class CustodyPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class LiquidationPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Liquidation  $liquidation
+     * @param  \App\Models\Custody  $custody
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Liquidation $liquidation)
+    public function view(User $user, Custody $custody)
     {
         //
     }
@@ -48,10 +48,10 @@ class LiquidationPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Liquidation  $liquidation
+     * @param  \App\Models\Custody  $custody
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Liquidation $liquidation)
+    public function update(User $user, Custody $custody)
     {
         //
     }
@@ -60,10 +60,10 @@ class LiquidationPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Liquidation  $liquidation
+     * @param  \App\Models\Custody  $custody
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Liquidation $liquidation)
+    public function delete(User $user, Custody $custody)
     {
         //
     }
@@ -72,10 +72,10 @@ class LiquidationPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Liquidation  $liquidation
+     * @param  \App\Models\Custody  $custody
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Liquidation $liquidation)
+    public function restore(User $user, Custody $custody)
     {
         //
     }
@@ -84,10 +84,10 @@ class LiquidationPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Liquidation  $liquidation
+     * @param  \App\Models\Custody  $custody
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Liquidation $liquidation)
+    public function forceDelete(User $user, Custody $custody)
     {
         //
     }

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row mar-50">
-        <form action="{{ route('stocks.store') }}" method="post">
+        <form action="{{ route('custodies.store') }}" method="post">
             @csrf
             @if (Session::has('success'))
                 <div class="alert alert-success text-center col-7 offset-2">{{ session('success') }}</div>
@@ -13,22 +13,14 @@
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
             @endforeach
-            <h1>إضافة مخزون جديد</h1>
+            <h1>إضافة عهدة جديدة</h1>
 
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">إسم المخزون</label>
-                <input type="text" value="{{ old('name') }}" name="name" class="form-control"
-                    id="exampleFormControlInput1" placeholder="إسم المخزون">
+                <label for="exampleFormControlInput1" class="form-label">المبلغ</label>
+                <input type="text" value="{{ old('mone_amount') }}" name="mone_amount" class="form-control"
+                    id="exampleFormControlInput1" placeholder="المبلغ">
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput2" class="form-label">النوع</label>
-                <select class="form-select" name="type" aria-label="النوع">
-                    <option value="in">داخل</option>
-                    <option value="out">خارج</option>
-                    <option value="recovered">راجع</option>
 
-                </select>
-            </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">إسم المرسل</label>
                 <input type="text" value="{{ old('sender') }}" name="sender" class="form-control"
@@ -38,12 +30,6 @@
                 <label for="exampleFormControlInput1" class="form-label">إسم المستلم</label>
                 <input type="text" value="{{ old('receiver') }}" name="receiver" class="form-control"
                     id="exampleFormControlInput1" placeholder="إسم المستلم">
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleFormControlInput5" class="form-label">العدد</label>
-                <input type="text" value="{{ old('count') }}" name="count" class="form-control"
-                    id="exampleFormControlInput1" placeholder="العدد">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput3" class="form-label">التاريخ</label>
@@ -58,7 +44,7 @@
             </div>
 
             <button type="submit" class="btn btn-success text-white offset-4">إضافة</button>
-            <a href="{{ route('stocks.index') }}" class="btn btn-dark text-white">عرض جميع المخزون</a>
+            <a href="{{ route('custodies.index') }}" class="btn btn-dark text-white">عرض جميع التصفيات</a>
 
 
         </form>

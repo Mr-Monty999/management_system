@@ -13,17 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('liquidation_spends', function (Blueprint $table) {
+        Schema::create('custody_spends', function (Blueprint $table) {
             $table->id();
             $table->string("type");
+            $table->string("responsible");
             $table->double("money_amount");
             $table->timestamp("date");
             $table->text("note")->nullable();
-            $table->unsignedBigInteger("liquidation_id");
+            $table->unsignedBigInteger("custody_id");
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign("liquidation_id")->references("id")->on("liquidations")->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign("custody_id")->references("id")->on("custodies")->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('liquidation_spends');
+        Schema::dropIfExists('custody_spends');
     }
 };

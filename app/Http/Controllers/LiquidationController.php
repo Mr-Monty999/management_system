@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreLiquidationRequest;
-use App\Http\Requests\UpdateLiquidationRequest;
-use App\Models\Liquidation;
+use App\Http\Requests\StoreCustodyRequest;
+use App\Http\Requests\UpdateCustodyRequest;
+use App\Models\Custody;
+use App\Models\Stock;
 
-class LiquidationController extends Controller
+class CustodyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class LiquidationController extends Controller
      */
     public function index()
     {
-        //
+        return view("custodies.index");
     }
 
     /**
@@ -25,27 +26,29 @@ class LiquidationController extends Controller
      */
     public function create()
     {
-        //
+        return view("custodies.create");
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreLiquidationRequest  $request
+     * @param  \App\Http\Requests\StoreCustodyRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLiquidationRequest $request)
+    public function store(StoreCustodyRequest $request)
     {
-        //
+        $data = $request->all();
+        $custody = Custody::create($data);
+        return back()->with("success", "تم إضافة العهدة بنجاح");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Liquidation  $liquidation
+     * @param  \App\Models\Custody  $custody
      * @return \Illuminate\Http\Response
      */
-    public function show(Liquidation $liquidation)
+    public function show(Custody $custody)
     {
         //
     }
@@ -53,33 +56,37 @@ class LiquidationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Liquidation  $liquidation
+     * @param  \App\Models\Custody  $custody
      * @return \Illuminate\Http\Response
      */
-    public function edit(Liquidation $liquidation)
+    public function edit($id)
     {
-        //
+        $custody = Custody::find($id);
+        return view("custodies.edit", compact("custody"));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateLiquidationRequest  $request
-     * @param  \App\Models\Liquidation  $liquidation
+     * @param  \App\Http\Requests\UpdateCustodyRequest  $request
+     * @param  \App\Models\Custody  $custody
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLiquidationRequest $request, Liquidation $liquidation)
+    public function update(UpdateCustodyRequest $request,  $id)
     {
-        //
+        $data = $request->all();
+        $custody = Custody::find($id);
+        $custody->update($data);
+        return back()->with("success", "تم تعديل العهدة بنجاح");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Liquidation  $liquidation
+     * @param  \App\Models\Custody  $custody
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Liquidation $liquidation)
+    public function destroy(Custody $custody)
     {
         //
     }

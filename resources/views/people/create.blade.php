@@ -13,6 +13,8 @@
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger text-center col-7 offset-2">{{ $error }}</div>
             @endforeach
+            <h1>إضافة فرد جديد</h1>
+
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">الإسم</label>
                 <input type="text" value="{{ old('name') }}" name="name" class="form-control"

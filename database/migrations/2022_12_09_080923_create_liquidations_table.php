@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('liquidations', function (Blueprint $table) {
+        Schema::create('custodies', function (Blueprint $table) {
             $table->id();
             $table->string("money_amount");
             $table->string("receiver")->index();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('liquidations');
+        Schema::dropIfExists('custodies');
     }
 };

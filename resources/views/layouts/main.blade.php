@@ -17,7 +17,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>CoreUI Free Bootstrap Admin Template</title>
+    <title>شركة أركان</title>
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/favicon/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/favicon/apple-icon-60x60.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/favicon/apple-icon-72x72.png') }}">
@@ -68,12 +68,13 @@
     <div class="sidebar
         sidebar-dark sidebar-fixed" id="sidebar">
         <div class="sidebar-brand d-none d-md-flex">
-            <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+            {{-- <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
                 <use xlink:href="{{ asset('assets/brand/coreui.svg#full') }}"></use>
-            </svg>
-            <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
+            </svg> --}}
+            {{-- <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
                 <use xlink:href="{{ asset('assets/brand/coreui.svg#signet') }}"></use>
-            </svg>
+            </svg> --}}
+            <h3>شركة أركان</h3>
         </div>
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
             <li class="nav-item"><a class="nav-link" href="index.html">
@@ -89,7 +90,7 @@
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
                     </svg> Typography</a></li> --}}
-            <li class="nav-title">Components</li>
+            {{-- <li class="nav-title">الوحدات</li> --}}
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
@@ -183,12 +184,13 @@
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
                     </svg> التصفيات</a>
                 <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-free.html"> تصفية جديدة<span
-                                class="badge badge-sm bg-success ms-auto">Free</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-brand.html"> سلفية جديدة
-                            Brand</a></li>
-                    <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-flag.html"> ميز
-                            Flag</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-free.html"> عهدة جديدة<span
+                                class="badge badge-sm bg-success ms-auto">Free</span></a></li> --}}
+                    <li class="nav-item"><a class="nav-link" href="{{ route('custodies.create') }}">عهدة
+                            جديدة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('custodies.index') }}">عرض جميع
+                            التصفيات</a></li>
+
                 </ul>
             </li>
             {{-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">

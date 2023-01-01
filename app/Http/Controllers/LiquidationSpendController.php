@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreLiquidationSpendRequest;
-use App\Http\Requests\UpdateLiquidationSpendRequest;
-use App\Models\LiquidationSpend;
+use App\Http\Requests\StoreCustodySpendRequest;
+use App\Http\Requests\UpdateCustodySpendRequest;
+use App\Models\CustodySpend;
 
-class LiquidationSpendController extends Controller
+class CustodySpendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class LiquidationSpendController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreLiquidationSpendRequest  $request
+     * @param  \App\Http\Requests\StoreCustodySpendRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLiquidationSpendRequest $request)
+    public function store(StoreCustodySpendRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class LiquidationSpendController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\LiquidationSpend  $liquidationSpend
+     * @param  \App\Models\CustodySpend  $custodySpend
      * @return \Illuminate\Http\Response
      */
-    public function show(LiquidationSpend $liquidationSpend)
+    public function show(CustodySpend $custodySpend)
     {
         //
     }
@@ -53,10 +53,10 @@ class LiquidationSpendController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\LiquidationSpend  $liquidationSpend
+     * @param  \App\Models\CustodySpend  $custodySpend
      * @return \Illuminate\Http\Response
      */
-    public function edit(LiquidationSpend $liquidationSpend)
+    public function edit(CustodySpend $custodySpend)
     {
         //
     }
@@ -64,11 +64,11 @@ class LiquidationSpendController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateLiquidationSpendRequest  $request
-     * @param  \App\Models\LiquidationSpend  $liquidationSpend
+     * @param  \App\Http\Requests\UpdateCustodySpendRequest  $request
+     * @param  \App\Models\CustodySpend  $custodySpend
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLiquidationSpendRequest $request, LiquidationSpend $liquidationSpend)
+    public function update(UpdateCustodySpendRequest $request, CustodySpend $custodySpend)
     {
         //
     }
@@ -76,10 +76,10 @@ class LiquidationSpendController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\LiquidationSpend  $liquidationSpend
+     * @param  \App\Models\CustodySpend  $custodySpend
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LiquidationSpend $liquidationSpend)
+    public function destroy(CustodySpend $custodySpend)
     {
         //
     }

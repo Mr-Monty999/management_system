@@ -3,9 +3,8 @@
 namespace App\Services;
 
 /**
- * Class LiquidationService.
+ * Class CustodyService.
  */
-class LiquidationService
+class CustodyService
 {
-
 }

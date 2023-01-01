@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreLiquidationBorrowRequest;
-use App\Http\Requests\UpdateLiquidationBorrowRequest;
-use App\Models\LiquidationBorrow;
+use App\Http\Requests\StoreCustodyBorrowRequest;
+use App\Http\Requests\UpdateCustodyBorrowRequest;
+use App\Models\CustodyBorrow;
 
-class LiquidationBorrowController extends Controller
+class CustodyBorrowController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class LiquidationBorrowController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreLiquidationBorrowRequest  $request
+     * @param  \App\Http\Requests\StoreCustodyBorrowRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLiquidationBorrowRequest $request)
+    public function store(StoreCustodyBorrowRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class LiquidationBorrowController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\LiquidationBorrow  $liquidationBorrow
+     * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Http\Response
      */
-    public function show(LiquidationBorrow $liquidationBorrow)
+    public function show(CustodyBorrow $custodyBorrow)
     {
         //
     }
@@ -53,10 +53,10 @@ class LiquidationBorrowController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\LiquidationBorrow  $liquidationBorrow
+     * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Http\Response
      */
-    public function edit(LiquidationBorrow $liquidationBorrow)
+    public function edit(CustodyBorrow $custodyBorrow)
     {
         //
     }
@@ -64,11 +64,11 @@ class LiquidationBorrowController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateLiquidationBorrowRequest  $request
-     * @param  \App\Models\LiquidationBorrow  $liquidationBorrow
+     * @param  \App\Http\Requests\UpdateCustodyBorrowRequest  $request
+     * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLiquidationBorrowRequest $request, LiquidationBorrow $liquidationBorrow)
+    public function update(UpdateCustodyBorrowRequest $request, CustodyBorrow $custodyBorrow)
     {
         //
     }
@@ -76,10 +76,10 @@ class LiquidationBorrowController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\LiquidationBorrow  $liquidationBorrow
+     * @param  \App\Models\CustodyBorrow  $custodyBorrow
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LiquidationBorrow $liquidationBorrow)
+    public function destroy(CustodyBorrow $custodyBorrow)
     {
         //
     }

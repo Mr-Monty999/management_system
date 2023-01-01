@@ -25,3 +25,6 @@ Route::resource("vehicles.worktimes", "VehicleWorkTimeController");
 Route::resource("vehicles.fuels", "VehicleFuelController");
 Route::resource("vehicles.maintenances", "VehicleMaintenanceController");
 Route::resource("vehicles.production-movements", "VehicleProductionMovementController");
+Route::resource("custodies", "CustodyController");
+Route::resource("custodies.borrows", "CustodyBorrowController");
+Route::resource("custodies.spends", "CustodySpendController");
