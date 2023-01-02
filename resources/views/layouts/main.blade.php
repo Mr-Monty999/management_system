@@ -74,7 +74,9 @@
             {{-- <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
                 <use xlink:href="{{ asset('assets/brand/coreui.svg#signet') }}"></use>
             </svg> --}}
-            <h3>شركة أركان</h3>
+            {{-- <h3>شركة أركان</h3> --}}
+            <img style="width: 100%;height:78%" class="align-self-start" src="{{ asset('assets/images/arkan.png') }}"
+                alt="">
         </div>
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
             <li class="nav-item"><a class="nav-link" href="index.html">
@@ -253,7 +255,7 @@
     </div>
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
         <header class="header header-sticky mb-4">
-            <div class="container-fluid">
+            <div class="container-fluid" style="height: 80px">
                 <button class="header-toggler px-md-0 me-md-3" type="button"
                     onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
                     <svg class="icon icon-lg">
