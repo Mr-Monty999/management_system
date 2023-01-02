@@ -96,7 +96,7 @@
             {{-- <li class="nav-title">الوحدات</li> --}}
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
+                        {{-- <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use> --}}
                     </svg> الأفراد</a>
                 <ul class="nav-group-items">
                     <li class="nav-item"><a class="nav-link" href="{{ route('people.create') }}"><span
@@ -146,8 +146,9 @@
             </li>
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-cursor"></use>
-                    </svg> المخازن</a>
+                        {{-- <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-cursor"></use> --}}
+                    </svg>
+                    المخازن</a>
                 <ul class="nav-group-items">
                     <li class="nav-item"><a class="nav-link" href="{{ route('stocks.create') }}"><span
                                 class="nav-icon"></span>
@@ -169,7 +170,7 @@
                     </svg> Charts</a></li> --}}
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
+                        {{-- <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use> --}}
                     </svg> الآليات</a>
                 <ul class="nav-group-items">
                     <li class="nav-item"><a class="nav-link" href="{{ route('vehicles.create') }}"> تسجيل آلية
@@ -184,7 +185,7 @@
             </li>
             <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
-                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
+                        {{-- <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use> --}}
                     </svg> العهد</a>
                 <ul class="nav-group-items">
                     {{-- <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-free.html"> عهدة جديدة<span
