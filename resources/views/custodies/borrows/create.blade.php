@@ -38,7 +38,7 @@
             </div>
 
             <button type="submit" class="btn btn-success text-white offset-4">إضافة</button>
-            <a href="{{ route('custodies.index') }}" class="btn btn-dark text-white">عرض جميع الأفراد</a>
+            <a href="{{ route('custodies.index') }}" class="btn btn-dark text-white">عرض جميع العهد</a>
             <a href="{{ route('custodies.borrows.index', $custody->id) }}" class="btn btn-dark text-white">عرض جميع
                 السلفيات</a>
 

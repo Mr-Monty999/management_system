@@ -41,7 +41,7 @@ class Index extends Component
             + $this->custodyOtherSpendsSum
             + $this->custodyAllBorrowsSum;
 
-        // dd(CustodyService::getAllCustodiesSpendsAndBorrowsSum(6));
+        // dd(CustodyService::getCustodyLeftMoneyAmount(6));
         return view('livewire.custodies.index', ["custodies" => $custodies]);
     }
 }

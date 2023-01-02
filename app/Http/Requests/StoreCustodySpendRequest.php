@@ -15,7 +15,7 @@ class StoreCustodySpendRequest extends FormRequest
     public $maxMoneyAmount;
     public function authorize()
     {
-        $this->maxMoneyAmount = CustodyService::getAllCustodiesSpendsAndBorrowsSum($this->route("custody"));
+        $this->maxMoneyAmount = CustodyService::getCustodyLeftMoneyAmount($this->route("custody"));
         return true;
     }
 
@@ -41,7 +41,7 @@ class StoreCustodySpendRequest extends FormRequest
             "type.required" => "الرجاء إختيار نوع المنصرف !",
             "money_amount.required" => "الرجاء إدخال المبلغ",
             "money_amount.max" => "لقد تجاوزت مبلغ العهدة !",
-            "money_amount.min" => "0 يجب أن لا يكون المبلغ أقل من"
+            "money_amount.min" => "1 يجب أن لا يكون المبلغ أقل من"
 
 
         ];

@@ -62,7 +62,7 @@
                         @endif
                     </td>
                     @if ($custody->borrows_sum_money_amount != null)
-                        {{ number_format($custody->borrows_sum_money_amount) }}
+                        <td>{{ number_format($custody->borrows_sum_money_amount) }}</td>
                     @else
                         <td>0</td>
                     @endif
