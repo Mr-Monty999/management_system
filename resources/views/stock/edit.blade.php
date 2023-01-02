@@ -52,8 +52,8 @@
 
             <div class="mb-3">
                 <label for="exampleFormControlInput5" class="form-label">ملاحظة</label>
-                <textarea type="note" value="{{ $stock->note }}" name="note" class="form-control" id="exampleFormControlInput1"
-                    id="" cols="30" rows="10"></textarea>
+                <textarea type="note" name="note" class="form-control" id="exampleFormControlInput1" id="" cols="30"
+                    rows="10">{{ $stock->note }}</textarea>
             </div>
 
             <button type="submit" class="btn btn-success text-white offset-4">تعديل</button>
