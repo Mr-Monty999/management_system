@@ -13,18 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", "PersonController@create");
+
+Route::group(
+    ["middleware" => "guest"],
+    function () {
+        Route::get("login", "UserController@loginPage")->name("login");
+        Route::post("login", "UserController@login")->name("user.login.attempt");
+        Route::post("logout", "UserController@logout")->name("user.logout");
+    }
+);
 
 
-Route::resource("people", "PersonController");
-Route::resource("people.worktimes", "PersonWorkTimeController");
-Route::resource("people.borrows", "PersonBorrowController");
-Route::resource("stocks", "StockController");
-Route::resource("vehicles", "VehicleController");
-Route::resource("vehicles.worktimes", "VehicleWorkTimeController");
-Route::resource("vehicles.fuels", "VehicleFuelController");
-Route::resource("vehicles.maintenances", "VehicleMaintenanceController");
-Route::resource("vehicles.production-movements", "VehicleProductionMovementController");
-Route::resource("custodies", "CustodyController");
-Route::resource("custodies.borrows", "CustodyBorrowController");
-Route::resource("custodies.spends", "CustodySpendController");
+Route::group(["middleware" => "auth"], function () {
+    Route::get("/", "PersonController@create");
+
+    Route::resource("people", "PersonController");
+    Route::resource("people.worktimes", "PersonWorkTimeController");
+    Route::resource("people.borrows", "PersonBorrowController");
+    Route::resource("stocks", "StockController");
+    Route::resource("vehicles", "VehicleController");
+    Route::resource("vehicles.worktimes", "VehicleWorkTimeController");
+    Route::resource("vehicles.fuels", "VehicleFuelController");
+    Route::resource("vehicles.maintenances", "VehicleMaintenanceController");
+    Route::resource("vehicles.production-movements", "VehicleProductionMovementController");
+    Route::resource("custodies", "CustodyController");
+    Route::resource("custodies.borrows", "CustodyBorrowController");
+    Route::resource("custodies.spends", "CustodySpendController");
+});

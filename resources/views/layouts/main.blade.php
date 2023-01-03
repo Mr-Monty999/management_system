@@ -78,6 +78,7 @@
             {{-- <h3>شركة أركان</h3> --}}
             <img style="width: 100%;height:78%" class="align-self-start" src="{{ asset('assets/images/arkan.png') }}"
                 alt="">
+
         </div>
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
             <li class="nav-item"><a class="nav-link">
@@ -267,6 +268,10 @@
                     <svg width="118" height="46" alt="CoreUI Logo">
                         <use xlink:href="assets/brand/coreui.svg#full"></use>
                     </svg></a>
+                <form style="left: 1%" position-absolute action="{{ route('user.logout') }}" method="post">
+                    @csrf
+                    <button class="btn btn-danger  text-white">تسجيل خروج</button>
+                </form>
                 {{-- <ul class="header-nav d-none d-md-flex">
                     <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
