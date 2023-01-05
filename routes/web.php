@@ -17,15 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     ["middleware" => "guest"],
     function () {
-        Route::get("login", "UserController@loginPage")->name("login");
-        Route::post("login", "UserController@login")->name("user.login.attempt");
-        Route::post("logout", "UserController@logout")->name("user.logout");
+        Route::get("login", "UserController@loginPage")->name("users.login");
+        Route::post("login", "UserController@login")->name("users.login.attempt");
     }
 );
 
 
 Route::group(["middleware" => "auth"], function () {
     Route::get("/", "PersonController@create");
+    Route::get("users/{user}/privacy", "UserController@privacy")->name("users.privacy");
+    Route::put("users/{user}/privacy", "UserController@updatePrivacy")->name("users.privacy.update");
+    Route::post("logout", "UserController@logout")->name("user.logout");
 
     Route::resource("people", "PersonController");
     Route::resource("people.worktimes", "PersonWorkTimeController");

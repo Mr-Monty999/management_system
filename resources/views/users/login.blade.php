@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-    <form style="margin-top: 8%" method="POST" action="{{ route('user.login.attempt') }}">
+    <form style="margin-top: 8%" method="POST" action="{{ route('users.login.attempt') }}">
         @csrf
         <img src="{{ asset('assets/images/arkan.png') }}" alt="">
         <div class="form-group">

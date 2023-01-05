@@ -26,8 +26,8 @@ return new class extends Migration
         });
 
         User::create([
-            "username" => "zoo",
-            "password" => Hash::make("asd1234")
+            "username" => "admin",
+            "password" => "admin"
         ]);
     }
 

@@ -198,6 +198,20 @@
 
                 </ul>
             </li>
+            <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+                    <svg class="nav-icon">
+                        {{-- <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use> --}}
+                    </svg> الخصوصية</a>
+                <ul class="nav-group-items">
+                    {{-- <li class="nav-item"><a class="nav-link" href="icons/coreui-icons-free.html"> عهدة جديدة<span
+                                class="badge badge-sm bg-success ms-auto">Free</span></a></li> --}}
+
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ route('users.privacy', auth()->user()->id) }}">تعديل
+                            خصوصية الحساب</a></li>
+
+                </ul>
+            </li>
             {{-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                     <svg class="nav-icon">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
@@ -264,13 +278,14 @@
                     <svg class="icon icon-lg">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
                     </svg>
-                </button><a class="header-brand d-md-none" href="#">
-                    <svg width="118" height="46" alt="CoreUI Logo">
+                </button>
+                {{-- <a class="header-brand d-md-none" href="#"> --}}
+                {{-- <svg width="118" height="46" alt="CoreUI Logo">
                         <use xlink:href="assets/brand/coreui.svg#full"></use>
-                    </svg></a>
+                    </svg></a> --}}
                 <form style="left: 1%" position-absolute action="{{ route('user.logout') }}" method="post">
                     @csrf
-                    <button class="btn btn-danger  text-white">تسجيل خروج</button>
+                    <button type="submit" class="btn btn-danger  text-white">تسجيل خروج</button>
                 </form>
                 {{-- <ul class="header-nav d-none d-md-flex">
                     <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
