@@ -2,11 +2,15 @@
 
 @section('content')
     <div class="row mar-50">
+
         <form style="margin-top: 8%" class="d-flex flex-column justify-content-center align-items-center" method="POST"
             action="{{ route('users.privacy.update', $user->id) }}">
             @csrf
             @method('put')
+                               <h1>تعديل خصوصية الحساب</h1>
+
             <div class="form-group">
+
                 <label for="username">إسم المستخدم</label>
                 <input value="{{ $user->username }}" type="text" name="username" class="form-control" id="username"
                     placeholder="إسم المستخدم">
