@@ -20,10 +20,15 @@ class Index extends Component
     public $custodySubsistenseSpendsSum;
     public $custodyOtherSpendsSum;
     public $custodyAllSpendsSum;
+    public $custodyAllSpendsAndBorrowsSum;
 
     public function deleteCustody($id)
     {
         $custody = Custody::find($id);
+        $custody->borrows()->delete();
+        $custody->otherSpends()->delete();
+        $custody->subsistenceSpends()->delete();
+
         $custody->delete();
         session()->flash("success", "تم حذف العهدة بنجاح");
     }
