@@ -16,8 +16,12 @@ class Index extends Component
 
     public function deleteVehicle($id)
     {
-        $person = Vehicle::find($id);
-        $person->delete();
+        $vehicle = Vehicle::find($id);
+        $vehicle->fuels()->delete();
+        $vehicle->mainTenances()->delete();
+        $vehicle->workTimes()->delete();
+        $vehicle->productionMovements()->delete();
+        $vehicle->delete();
         session()->flash("success", "تم حذف الآلية بنجاح");
     }
 

@@ -26,4 +26,8 @@ class Vehicle extends Model
     {
         return $this->hasMany(VehicleFuel::class);
     }
+    public function productionMovements()
+    {
+        return $this->hasMany(VehicleProductionMovement::class);
+    }
 }

@@ -17,6 +17,8 @@ class Index extends Component
     public function deletePerson($id)
     {
         $person = Person::find($id);
+        $person->borrows()->delete();
+        $person->workTimes()->delete();
         $person->delete();
         session()->flash("success", "تم حذف الفرد بنجاح");
     }
