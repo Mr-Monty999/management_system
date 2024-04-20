@@ -47,3 +47,18 @@ jobs:
 
       - name: Run tests
         run: php artisan test
+
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Copy files to the server
+  #       uses: appleboy/scp-action@master
+  #       with:
+  #         host: ${{ secrets.VPS_HOST }}
+  #         username: ${{ secrets.VPS_USERNAME }}
+  #         key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #         source: "." # Change to the directory where your Laravel app resides.
+  #         target: "/var/www/html" # Change to the directory where your app should be deployed.
+
